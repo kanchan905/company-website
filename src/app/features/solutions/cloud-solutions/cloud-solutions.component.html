@@ -1,0 +1,43 @@
+<main class="solution-page">
+  <section class="hero">
+    <p class="eyebrow">Cloud Solutions</p>
+    <h1>Secure, scalable, and cost-optimized cloud architecture for modern businesses</h1>
+    <p>
+      We help you migrate, modernize, and run your systems on cloud with strong governance,
+      uptime reliability, and predictable cost control.
+    </p>
+    <a routerLink="/contact" class="btn-primary">Plan Cloud Roadmap</a>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="What We Deliver"
+      title="Cloud that supports business continuity and growth"
+      description="From migration to optimization, each step is designed for performance, safety, and control."
+      [center]="true"
+    />
+    <div class="grid">
+      @for (item of pillars; track item.title) {
+        <app-feature-card
+          [icon]="item.icon"
+          [title]="item.title"
+          [description]="item.description"
+        />
+      }
+    </div>
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="Cloud solution sample visual"
+    eyebrow="Cloud Infrastructure"
+    title="Place cloud architecture visual or migration campaign image"
+    description="Is section me cloud migration, uptime, backup ya security posture ka visual add karna best rahega."
+    pointOne="Explain migration journey visually"
+    pointTwo="Show security readiness"
+    pointThree="Highlight uptime commitment"
+    ctaText="Plan Cloud Shift"
+    ctaLink="/contact"
+    [reverse]="true"
+  />
+</main>

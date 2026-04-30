@@ -1,0 +1,63 @@
+<main class="company-page">
+  <section class="hero">
+    <app-section-heading
+      eyebrow="Our Clients"
+      title="Trusted by ambitious businesses across industries"
+      description="We partner with teams that value clarity, execution speed, and scalable systems."
+    />
+    <div class="hero-metrics">
+      @for (item of metrics; track item.label) {
+        <article>
+          <h3>{{ item.value }}</h3>
+          <p>{{ item.label }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="sector-grid">
+    @for (sector of sectors; track sector) {
+      <article class="sector-card">
+        <h3>{{ sector.title }}</h3>
+        <p class="challenge"><strong>Challenge:</strong> {{ sector.challenge }}</p>
+        <p class="outcome"><strong>Outcome:</strong> {{ sector.outcome }}</p>
+      </article>
+    }
+  </section>
+
+  <section class="testimonial-grid">
+    @for (item of testimonials; track item.name) {
+      <article class="testimonial-card">
+        <p>"{{ item.quote }}"</p>
+        <h4>{{ item.name }}</h4>
+      </article>
+    }
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="Client success sample banner"
+    eyebrow="Client Campaign"
+    title="Show your client success poster or case highlight visual here"
+    description="Client trust build karne ke liye proof-based visual sections bahut effective hote hain."
+    pointOne="Use before/after style graphic"
+    pointTwo="Add sector-specific result poster"
+    pointThree="Place QR/contact CTA on image"
+    ctaText="Share Your Requirement"
+    ctaLink="/contact"
+    [reverse]="true"
+  />
+
+  <section class="cta">
+    <h2>Want a tailored roadmap for your industry?</h2>
+    <p>Book a discussion and we will share the right implementation model for your business stage.</p>
+    <a routerLink="/contact">Schedule a Consultation</a>
+  </section>
+
+  <section class="brand-strip">
+    <span>Fast Onboarding</span>
+    <span>Industry-Specific Workflows</span>
+    <span>Dedicated Support</span>
+    <span>Transparent Reporting</span>
+  </section>
+</main>

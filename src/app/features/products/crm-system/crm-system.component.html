@@ -1,0 +1,41 @@
+<main class="product-page">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">CRM System</p>
+      <h1>Convert more leads and manage customer relationships with confidence</h1>
+      <p>
+        A practical CRM setup that gives your sales and management teams clear visibility,
+        better follow-up control, and predictable growth tracking.
+      </p>
+    </div>
+    <a routerLink="/contact" class="btn-primary">Get CRM Demo</a>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="CRM Features"
+      title="Built to improve conversion, retention, and team productivity"
+      description="Simple for teams, powerful for leadership decisions."
+      [center]="true"
+    />
+    <div class="grid">
+      @for (item of crmModules; track item.title) {
+        <app-feature-card [icon]="item.icon" [title]="item.title" [description]="item.description" />
+      }
+    </div>
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="CRM product sample visual"
+    eyebrow="CRM Campaign"
+    title="Add CRM dashboard, lead funnel, or sales tracker image here"
+    description="Visual CRM proof se prospects ko immediately samajh aata hai ki product kaise help karega."
+    pointOne="Lead funnel snapshot"
+    pointTwo="Sales dashboard preview"
+    pointThree="Follow-up pipeline view"
+    ctaText="Talk to CRM Expert"
+    ctaLink="/contact"
+    [reverse]="true"
+  />
+</main>

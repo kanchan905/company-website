@@ -1,0 +1,44 @@
+<main class="service-page">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Web Development</p>
+      <h1>Modern websites and web apps that drive business growth</h1>
+      <p>
+        We design and develop high-performance web solutions with clean UX,
+        scalable architecture, and measurable business outcomes.
+      </p>
+    </div>
+    <a routerLink="/contact" class="btn-primary">Start Your Web Project</a>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="What We Build"
+      title="Web solutions tailored to your growth stage"
+      description="From startup websites to enterprise-grade platforms, we build with performance and scale in mind."
+      [center]="true"
+    />
+    <div class="grid">
+      @for (item of offerings; track item.title) {
+        <app-feature-card
+          [icon]="item.icon"
+          [title]="item.title"
+          [description]="item.description"
+        />
+      }
+    </div>
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="Web development sample visual"
+    eyebrow="Showcase"
+    title="Add your website design or dashboard screenshot here"
+    description="Is block me aap apna live project screenshot, homepage mockup, ya product interface visual use kar sakte ho."
+    pointOne="Highlight real UI quality"
+    pointTwo="Showcase responsiveness"
+    pointThree="Build trust with visuals"
+    ctaText="Discuss Requirements"
+    ctaLink="/contact"
+  />
+</main>

@@ -1,0 +1,37 @@
+<main class="resource-page">
+  <section class="hero">
+    <p class="eyebrow">FAQs</p>
+    <h1>Answers to the most common questions from our clients</h1>
+    <p>Quick clarity on process, timelines, support, and implementation approach.</p>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Common Questions"
+      title="Need fast answers before you start?"
+      description="If your question is not listed, connect with us and we will help you quickly."
+    />
+
+    <div class="faq-grid">
+      @for (item of faqs; track item.question) {
+        <article class="faq-card">
+          <h3>{{ item.question }}</h3>
+          <p>{{ item.answer }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="FAQ support sample visual"
+    eyebrow="Support Visual"
+    title="Add support process image or helpdesk visual here"
+    description="FAQs page me support visual add karne se trust aur response confidence dono बढ़ते हैं."
+    pointOne="Show response SLA graphic"
+    pointTwo="Support workflow snapshot"
+    pointThree="Client help timeline visual"
+    ctaText="Ask Your Question"
+    ctaLink="/contact"
+  />
+</main>

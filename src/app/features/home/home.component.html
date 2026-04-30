@@ -1,0 +1,126 @@
+<main class="home">
+  <section class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">Tally Certified Partner</p>
+      <h1>Modern Accounting & Business Software Solutions for Growing Teams</h1>
+      <p class="hero-text">
+        We help businesses move from manual accounting to smart, connected workflows
+        with TallyPrime, mobile reporting, automation, and reliable support.
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" routerLink="/contact">Book Free Consultation</a>
+        <a class="btn-ghost" routerLink="/products/tally-solutions">Explore Products</a>
+      </div>
+      <div class="hero-highlights">
+        @for (item of highlights; track item.label) {
+          <article class="highlight-card">
+            <h3>{{ item.value }}</h3>
+            <p>{{ item.label }}</p>
+          </article>
+        }
+      </div>
+    </div>
+
+    <aside class="hero-panel">
+      <p class="panel-tag">What You Get</p>
+      <h2>One place for implementation, training, and after-sales support</h2>
+      <ul>
+        <li>GST-ready setup and data migration</li>
+        <li>Owner-friendly dashboards and alerts</li>
+        <li>Onsite + remote support in your business hours</li>
+      </ul>
+      <a routerLink="/contact" class="panel-link">Talk to Expert →</a>
+    </aside>
+  </section>
+
+  <section class="trusted-strip">
+    <p>Trusted by retailers, manufacturers, distributors, and service companies in Haryana.</p>
+  </section>
+
+  <section class="image-showcase">
+    <article class="image-card">
+      <img src="images/logo.jpeg" alt="Sample business campaign visual" />
+    </article>
+
+    <article class="image-content">
+      <p class="eyebrow">Campaign Highlight</p>
+      <h2>Easily track expense data with actionable smart reports</h2>
+      <p>
+        Is block me aap kisi bhi campaign/poster image ko show kar sakte ho. Bas apni image
+        `public/images` folder me add karo and `img src` update kar do.
+      </p>
+      <ul>
+        <li>Check reports and make data-driven decisions</li>
+        <li>Automate outstanding reminders</li>
+        <li>Improve team productivity and follow-ups</li>
+      </ul>
+      <a class="btn-primary" routerLink="/contact">Use This Section</a>
+    </article>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Our Core Services"
+      title="Designed for practical business outcomes"
+      description="Use these services individually or as a full-stack growth package depending on your current stage."
+      [center]="true"
+    />
+
+    <div class="grid four-col">
+      @for (card of serviceCards; track card.title) {
+        <app-feature-card
+          [icon]="card.icon"
+          [title]="card.title"
+          [description]="card.description"
+          [linkText]="card.linkText"
+          [link]="card.link"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <app-section-heading
+      eyebrow="Why Businesses Choose Us"
+      title="A modern consulting approach with local support strength"
+      description="We combine implementation quality, process clarity, and measurable improvements in daily operations."
+      [center]="true"
+    />
+
+    <div class="grid three-col">
+      @for (item of whyUsCards; track item.title) {
+        <app-feature-card
+          [icon]="item.icon"
+          [title]="item.title"
+          [description]="item.description"
+          [compact]="true"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="section testimonials">
+    <app-section-heading
+      eyebrow="Client Voice"
+      title="Results that reflect in business numbers"
+      description="A few examples of what clients typically experience after optimization."
+      [center]="true"
+    />
+
+    <div class="grid two-col">
+      @for (review of testimonials; track review.name) {
+        <article class="testimonial-card">
+          <p>"{{ review.quote }}"</p>
+          <h3>{{ review.name }}</h3>
+          <span>{{ review.role }}</span>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Ready to modernize your accounting workflow?</h2>
+    <p>Start with a consultation call and get a practical roadmap for your business.</p>
+    <a class="btn-primary" routerLink="/contact">Get Started Today</a>
+  </section>
+</main>

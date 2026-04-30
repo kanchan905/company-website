@@ -1,0 +1,43 @@
+<main class="service-page">
+  <section class="hero">
+    <p class="eyebrow">SEO Services</p>
+    <h1>Rank higher, get better traffic, and convert search visibility into revenue</h1>
+    <p>
+      We execute SEO strategies focused on business impact: stronger rankings,
+      relevant visitors, and qualified leads.
+    </p>
+    <a routerLink="/contact" class="btn-primary">Start SEO Growth</a>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="SEO Expertise"
+      title="SEO execution with strategy, structure, and measurable outcomes"
+      description="Technical, content, and local SEO combined for compounding organic growth."
+      [center]="true"
+    />
+    <div class="grid">
+      @for (item of seoAreas; track item.title) {
+        <app-feature-card
+          [icon]="item.icon"
+          [title]="item.title"
+          [description]="item.description"
+        />
+      }
+    </div>
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="SEO sample visual"
+    eyebrow="Growth Visual"
+    title="Place keyword growth graph or SEO campaign visual in this card"
+    description="Visual performance indicators se page credibility aur client trust dono improve hote hain."
+    pointOne="Traffic growth snapshots"
+    pointTwo="Keyword ranking movement"
+    pointThree="Lead generation impact"
+    ctaText="Get SEO Audit"
+    ctaLink="/contact"
+    [reverse]="true"
+  />
+</main>

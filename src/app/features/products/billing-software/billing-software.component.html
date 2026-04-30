@@ -1,0 +1,38 @@
+<main class="product-page">
+  <section class="hero">
+    <p class="eyebrow">Billing Software</p>
+    <h1>Speed up billing operations while keeping accuracy and control intact</h1>
+    <p>
+      Billing software built for modern businesses that need faster counters, cleaner records,
+      and stronger payment tracking.
+    </p>
+    <a routerLink="/contact" class="btn-primary">Request Billing Demo</a>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Billing Capabilities"
+      title="Everything needed for smooth invoicing and collections"
+      description="Designed for retail, distribution, and service businesses."
+      [center]="true"
+    />
+    <div class="grid">
+      @for (item of billingFeatures; track item.title) {
+        <app-feature-card [icon]="item.icon" [title]="item.title" [description]="item.description" />
+      }
+    </div>
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="Billing software sample visual"
+    eyebrow="Billing Visual"
+    title="Use invoice screen or billing dashboard screenshot in this card"
+    description="Ek strong visual billing speed aur reporting clarity ko instantly communicate karta hai."
+    pointOne="Invoice generation preview"
+    pointTwo="Payment tracking visual"
+    pointThree="Stock sync showcase"
+    ctaText="Get Billing Setup"
+    ctaLink="/contact"
+  />
+</main>

@@ -1,1 +1,186 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+:root {
+
+  /* =========================
+     PRIMARY COLORS
+  ========================== */
+
+  --primary-blue: #0D6EFD;
+  --deep-blue: #0057B8;
+  --light-blue: #38BDF8;
+
+  --primary-red: #D61A1A;
+
+  /* =========================
+     SECONDARY COLORS
+  ========================== */
+
+  --orange: #F58A1F;
+  --red-orange: #E43D30;
+
+  /* =========================
+     NEUTRAL COLORS
+  ========================== */
+
+  --gray: #9AA0A6;
+  --dark-gray: #333333;
+  --light-gray: #F1F3F5;
+
+  --white: #ffffff;
+  --slate-800: #1f2937;
+  --slate-900: #0f172a;
+  --slate-50: #f8fafc;
+
+  --border-soft: rgba(15, 23, 42, 0.08);
+  --border-medium: rgba(15, 23, 42, 0.15);
+  --shadow-soft: rgba(15, 23, 42, 0.1);
+  --shadow-strong: rgba(15, 23, 42, 0.14);
+  --brand-shadow: rgba(13, 110, 253, 0.25);
+  --glass-white: rgba(255, 255, 255, 0.95);
+
+
+  /* =========================
+     BRAND GRADIENTS
+  ========================== */
+
+  /* Main Hero Gradient */
+  --blue-gradient: linear-gradient(
+    135deg,
+    #0057B8,
+    #38BDF8
+  );
+
+  /* CTA / Buttons Gradient */
+  --orange-red-gradient: linear-gradient(
+    135deg,
+    #F58A1F,
+    #D61A1A
+  );
+
+  /* Premium Dark Gradient */
+  --dark-gradient: linear-gradient(
+    135deg,
+    #333333,
+    #111827
+  );
+
+  /* =========================
+     SEMANTIC THEME TOKENS
+  ========================== */
+  --theme-surface: var(--white);
+  --theme-surface-soft: var(--slate-50);
+  --theme-surface-accent: rgba(13, 110, 253, 0.05);
+
+  --theme-text-primary: var(--slate-900);
+  --theme-text-secondary: #475569;
+  --theme-text-muted: #64748b;
+  --theme-text-on-dark: #cbd5e1;
+  --theme-heading-on-dark: #f8fafc;
+
+  --theme-border: var(--border-soft);
+  --theme-border-accent: rgba(13, 110, 253, 0.3);
+  --theme-link: var(--primary-blue);
+  --theme-link-hover: #7dd3fc;
+
+  --theme-hero-glow: radial-gradient(circle at top right, rgba(56, 189, 248, 0.18), transparent 40%);
+  --theme-footer-bg: linear-gradient(160deg, #0f172a, #111827);
+  --theme-panel-bg: linear-gradient(160deg, #0f172a, #1e293b);
+  --theme-cta-bg: linear-gradient(130deg, #0d6efd, #0ea5e9);
+  --theme-button-accent: linear-gradient(135deg, #7dd3fc, #38bdf8);
+  --theme-card-glow: 0 18px 40px rgba(13, 110, 253, 0.16);
+  --theme-card-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
+  --theme-card-strong: 0 20px 42px rgba(2, 8, 23, 0.12);
+}
+
+
+/* =========================
+   GLOBAL STYLES
+========================== */
+
+body{
+  margin:0;
+  padding:0;
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(56, 189, 248, 0.08), transparent 34%),
+    url("/images/abstract-grid.svg");
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--dark-gray);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   COMMON UTILITY CLASSES
+========================== */
+
+
+/* Hero Background */
+.hero-gradient{
+  background: var(--blue-gradient);
+}
+
+
+/* CTA Button */
+.btn-primary{
+  background: var(--blue-gradient);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 10px;
+  border:none;
+  cursor:pointer;
+  transition:0.3s ease;
+}
+
+.btn-primary:hover{
+  transform: translateY(-2px);
+  opacity:0.95;
+}
+
+
+/* Secondary CTA */
+.btn-secondary{
+  background: var(--orange-red-gradient);
+  color:white;
+  padding:14px 28px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+}
+
+
+/* Section Background */
+.section-light{
+  background: var(--light-gray);
+}
+
+
+/* Card Style */
+.custom-card{
+  background:white;
+  border-radius:16px;
+  padding:24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+
+/* Heading */
+.section-title{
+  color: var(--deep-blue);
+  font-size: 40px;
+  font-weight: bold;
+}
+
+
+/* Paragraph */
+.section-text{
+  color: var(--gray);
+  line-height: 1.7;
+}

@@ -1,0 +1,362 @@
+:host {
+  display: block;
+}
+
+.home {
+  padding: 0 0 40px;
+}
+
+.hero {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 44px 20px 24px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+}
+
+.hero-content,
+.hero-panel {
+  border: 1px solid var(--border-soft);
+  border-radius: 24px;
+}
+
+.hero-content {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(22px, 4vw, 42px);
+  background: var(--theme-hero-glow), var(--theme-surface);
+
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -40px;
+    top: -30px;
+    width: 360px;
+    height: 280px;
+    background: url("/images/mesh-glow.svg") center/cover no-repeat;
+    opacity: 0.48;
+    z-index: 1;
+  }
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--primary-blue);
+}
+
+h1 {
+  margin: 12px 0 0;
+  font-size: clamp(2rem, 1.7rem + 1.8vw, 3.3rem);
+  line-height: 1.1;
+  color: var(--slate-900);
+}
+
+.hero-text {
+  margin: 16px 0 0;
+  max-width: 62ch;
+  color: var(--theme-text-secondary);
+  line-height: 1.75;
+}
+
+.hero-actions {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn-primary,
+.btn-ghost {
+  border-radius: 12px;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: var(--blue-gradient);
+  color: var(--white);
+  border: 0;
+}
+
+.btn-ghost {
+  color: var(--theme-link);
+  border: 1px solid rgba(13, 110, 253, 0.24);
+  background: var(--theme-surface);
+}
+
+.hero-highlights {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.highlight-card {
+  padding: 14px;
+  border: 1px solid var(--theme-border);
+  border-radius: 14px;
+  background: var(--theme-surface);
+
+  h3 {
+    margin: 0;
+    color: var(--deep-blue);
+    font-size: 1.15rem;
+  }
+
+  p {
+    margin: 5px 0 0;
+    font-size: 0.88rem;
+    color: var(--theme-text-muted);
+  }
+}
+
+.hero-panel {
+  position: relative;
+  overflow: hidden;
+  background: var(--theme-panel-bg);
+  padding: clamp(20px, 3vw, 30px);
+  color: var(--theme-text-on-dark);
+  display: grid;
+  align-content: start;
+  gap: 14px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -60px;
+    bottom: -70px;
+    width: 280px;
+    height: 220px;
+    background: url("/images/mesh-glow.svg") center/cover no-repeat;
+    opacity: 0.24;
+    pointer-events: none;
+  }
+
+  .panel-tag {
+    margin: 0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #7dd3fc;
+    font-weight: 700;
+  }
+
+  h2 {
+    margin: 0;
+    color: var(--theme-heading-on-dark);
+    font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2rem);
+    line-height: 1.2;
+  }
+
+  ul {
+    margin: 4px 0 0;
+    padding-left: 18px;
+    display: grid;
+    gap: 10px;
+    color: var(--theme-text-on-dark);
+  }
+
+  .panel-link {
+    margin-top: 8px;
+    color: #7dd3fc;
+    text-decoration: none;
+    font-weight: 600;
+  }
+}
+
+.trusted-strip {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 10px 20px 0;
+
+  p {
+    margin: 0;
+    padding: 14px 20px;
+    border-radius: 14px;
+    border: 1px dashed var(--theme-border-accent);
+    background: var(--theme-surface-accent);
+    color: var(--theme-text-primary);
+    text-align: center;
+    font-weight: 500;
+  }
+}
+
+.image-showcase {
+  max-width: 1220px;
+  margin: 22px auto 0;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 22px;
+  align-items: center;
+}
+
+.image-card {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--theme-border);
+  box-shadow: var(--theme-card-soft);
+  background: var(--theme-surface);
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+  }
+}
+
+.image-content {
+  padding: 14px 4px;
+
+  h2 {
+    margin: 8px 0 0;
+    font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.5rem);
+    line-height: 1.15;
+    color: var(--theme-text-primary);
+  }
+
+  p {
+    margin: 12px 0 0;
+    color: var(--theme-text-secondary);
+    line-height: 1.75;
+  }
+
+  ul {
+    margin: 14px 0 0;
+    padding-left: 18px;
+    color: var(--theme-text-secondary);
+    display: grid;
+    gap: 8px;
+  }
+
+  .btn-primary {
+    margin-top: 16px;
+    display: inline-block;
+  }
+}
+
+.section {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 64px 20px 0;
+}
+
+.section-soft {
+  margin-top: 64px;
+  border-radius: 28px;
+  background: var(--theme-surface-soft);
+  padding-bottom: 50px;
+}
+
+.grid {
+  margin-top: 26px;
+  display: grid;
+  gap: 16px;
+}
+
+.four-col {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.three-col {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.two-col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.testimonials .testimonial-card {
+  padding: 24px;
+  border-radius: 18px;
+  border: 1px solid var(--theme-border);
+  background: var(--theme-surface);
+
+  p {
+    margin: 0;
+    color: var(--theme-text-secondary);
+    line-height: 1.8;
+    font-style: italic;
+  }
+
+  h3 {
+    margin: 18px 0 0;
+    color: var(--slate-900);
+    font-size: 1.02rem;
+  }
+
+  span {
+    color: var(--theme-text-muted);
+    font-size: 0.9rem;
+  }
+}
+
+.cta {
+  max-width: 1220px;
+  margin: 64px auto 0;
+  padding: 38px 20px;
+  text-align: center;
+  background: var(--theme-cta-bg);
+  border-radius: 24px;
+  color: var(--white);
+
+  h2 {
+    margin: 0;
+    font-size: clamp(1.6rem, 1.4rem + 1.2vw, 2.5rem);
+  }
+
+  p {
+    margin: 12px auto 0;
+    max-width: 58ch;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .btn-primary {
+    display: inline-block;
+    margin-top: 22px;
+    background: var(--theme-surface);
+    color: var(--theme-link);
+  }
+}
+
+@media (max-width: 1080px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .image-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .four-col,
+  .three-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-highlights,
+  .four-col,
+  .three-col,
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .section-soft {
+    margin-top: 40px;
+  }
+}

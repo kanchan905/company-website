@@ -1,0 +1,40 @@
+<main class="resource-page">
+  <section class="hero">
+    <p class="eyebrow">Case Studies</p>
+    <h1>Real transformation stories from growing businesses</h1>
+    <p>Explore practical outcomes delivered through better systems, automation, and advisory support.</p>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Featured Cases"
+      title="Business results, not just implementation details"
+      description="Each case study highlights clear context: challenge, approach, and measurable outcome."
+    />
+
+    <div class="study-grid">
+      @for (item of studies; track item.title) {
+        <article class="study-card">
+          <h3>{{ item.title }}</h3>
+          <p><strong>Challenge:</strong> {{ item.challenge }}</p>
+          <p><strong>Outcome:</strong> {{ item.outcome }}</p>
+          <a routerLink="/contact">Request Similar Plan →</a>
+        </article>
+      }
+    </div>
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="Case study sample visual"
+    eyebrow="Case Visual"
+    title="Add before/after chart, dashboard, or campaign image here"
+    description="Case study pages me visual proof outcomes ko aur credible banata hai."
+    pointOne="Show KPI progress"
+    pointTwo="Add operational snapshot"
+    pointThree="Display timeline impact"
+    ctaText="See Your Possibilities"
+    ctaLink="/contact"
+    [reverse]="true"
+  />
+</main>

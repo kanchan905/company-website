@@ -1,0 +1,45 @@
+.section-heading {
+  display: grid;
+  gap: 14px;
+  max-width: 680px;
+
+  .eyebrow {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary-blue);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--blue-gradient);
+  }
+
+  h2 {
+    margin: 0;
+    font-size: clamp(2rem, 1.45rem + 1.65vw, 3rem);
+    line-height: 1.1;
+    color: var(--slate-900);
+    letter-spacing: -0.02em;
+  }
+
+  .description {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--theme-text-secondary);
+  }
+
+  &.center {
+    margin-inline: auto;
+    text-align: center;
+  }
+}

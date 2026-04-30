@@ -1,0 +1,44 @@
+<main class="service-page">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">UI/UX Design</p>
+      <h1>Design digital experiences that feel intuitive and convert better</h1>
+      <p>
+        We combine usability, visual hierarchy, and interaction design to create products
+        users trust and teams can scale.
+      </p>
+    </div>
+    <a routerLink="/contact" class="btn-primary">Design My Product</a>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Design Services"
+      title="User-first design process for modern products"
+      description="From wireframes to high-fidelity interfaces, every layer is built for clarity and action."
+      [center]="true"
+    />
+    <div class="grid">
+      @for (item of designServices; track item.title) {
+        <app-feature-card
+          [icon]="item.icon"
+          [title]="item.title"
+          [description]="item.description"
+        />
+      }
+    </div>
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="UI UX sample visual"
+    eyebrow="Design Gallery"
+    title="Use a UI screen preview, design board, or product mockup visual"
+    description="Yeh section aapke design quality ka strongest proof ban sakta hai."
+    pointOne="Before/After flow image"
+    pointTwo="Wireframe to UI transition"
+    pointThree="Mobile + desktop showcase"
+    ctaText="Discuss Design Sprint"
+    ctaLink="/contact"
+  />
+</main>

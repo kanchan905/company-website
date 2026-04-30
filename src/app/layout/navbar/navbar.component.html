@@ -1,0 +1,112 @@
+<header class="navbar">
+  <div class="container">
+    <div class="logo">
+      <img src="images/logo.jpeg" alt="logo">
+    </div>
+
+    <button class="menu-toggle" type="button" (click)="toggleMobileMenu()" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav [class.nav-open]="isMobileMenuOpen">
+      <a
+        routerLink="/"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeMobileMenu()"
+      >
+        Home
+      </a>
+
+      <div
+        class="dropdown"
+        [class.open]="activeDropdown === 'company'"
+        [class.active-parent]="isRouteGroupActive(['/company'])"
+      >
+        <button type="button" class="dropdown-trigger" (click)="toggleDropdown('company')">
+          Company
+        </button>
+        <div class="dropdown-menu">
+          <a routerLink="/company/about" routerLinkActive="active-link" (click)="closeMobileMenu()">About Us</a>
+          <a routerLink="/company/team" routerLinkActive="active-link" (click)="closeMobileMenu()">Our Team</a>
+          <a routerLink="/company/careers" routerLinkActive="active-link" (click)="closeMobileMenu()">Careers</a>
+          <a routerLink="/company/clients" routerLinkActive="active-link" (click)="closeMobileMenu()">Clients</a>
+        </div>
+      </div>
+
+      <div
+        class="dropdown"
+        [class.open]="activeDropdown === 'solutions'"
+        [class.active-parent]="isRouteGroupActive(['/solutions'])"
+      >
+        <button type="button" class="dropdown-trigger" (click)="toggleDropdown('solutions')">
+          Solutions
+        </button>
+        <div class="dropdown-menu">
+          <a routerLink="/solutions/erp-solutions" routerLinkActive="active-link" (click)="closeMobileMenu()">ERP Solutions</a>
+          <a routerLink="/solutions/cloud-solutions" routerLinkActive="active-link" (click)="closeMobileMenu()">Cloud Solutions</a>
+          <a routerLink="/solutions/business-automation" routerLinkActive="active-link" (click)="closeMobileMenu()">Business Automation</a>
+          <a routerLink="/solutions/it-consulting" routerLinkActive="active-link" (click)="closeMobileMenu()">IT Consulting</a>
+        </div>
+      </div>
+
+      <div
+        class="dropdown"
+        [class.open]="activeDropdown === 'services'"
+        [class.active-parent]="isRouteGroupActive(['/services'])"
+      >
+        <button type="button" class="dropdown-trigger" (click)="toggleDropdown('services')">
+          Services
+        </button>
+        <div class="dropdown-menu">
+          <a routerLink="/services/web-development" routerLinkActive="active-link" (click)="closeMobileMenu()">Web Development</a>
+          <a routerLink="/services/mobile-apps" routerLinkActive="active-link" (click)="closeMobileMenu()">Mobile Apps</a>
+          <a routerLink="/services/ui-ux-design" routerLinkActive="active-link" (click)="closeMobileMenu()">UI/UX Design</a>
+          <a routerLink="/services/seo-services" routerLinkActive="active-link" (click)="closeMobileMenu()">SEO Services</a>
+        </div>
+      </div>
+
+      <div
+        class="dropdown"
+        [class.open]="activeDropdown === 'products'"
+        [class.active-parent]="isRouteGroupActive(['/products'])"
+      >
+        <button type="button" class="dropdown-trigger" (click)="toggleDropdown('products')">
+          Products
+        </button>
+        <div class="dropdown-menu">
+          <a routerLink="/products/tally-solutions" routerLinkActive="active-link" (click)="closeMobileMenu()">Tally Solutions</a>
+          <a routerLink="/products/crm-system" routerLinkActive="active-link" (click)="closeMobileMenu()">CRM System</a>
+          <a routerLink="/products/billing-software" routerLinkActive="active-link" (click)="closeMobileMenu()">Billing Software</a>
+        </div>
+      </div>
+
+      <div
+        class="dropdown"
+        [class.open]="activeDropdown === 'resources'"
+        [class.active-parent]="isRouteGroupActive(['/resources'])"
+      >
+        <button type="button" class="dropdown-trigger" (click)="toggleDropdown('resources')">
+          Resources
+        </button>
+        <div class="dropdown-menu">
+          <a routerLink="/resources/blog" routerLinkActive="active-link" (click)="closeMobileMenu()">Blog</a>
+          <a routerLink="/resources/case-studies" routerLinkActive="active-link" (click)="closeMobileMenu()">Case Studies</a>
+          <a routerLink="/resources/faqs" routerLinkActive="active-link" (click)="closeMobileMenu()">FAQs</a>
+        </div>
+      </div>
+
+      <a routerLink="/contact" routerLinkActive="active-link" (click)="closeMobileMenu()">
+        Contact
+      </a>
+    </nav>
+
+    <div class="actions">
+      <button class="quote-btn" type="button" routerLink="/contact" (click)="closeMobileMenu()">
+        Get Quote
+      </button>
+    </div>
+  </div>
+</header>

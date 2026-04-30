@@ -1,0 +1,39 @@
+<main class="resource-page">
+  <section class="hero">
+    <p class="eyebrow">Blog</p>
+    <h1>Insights, playbooks, and practical ideas for modern business systems</h1>
+    <p>Read actionable articles around finance, operations, automation, and digital growth.</p>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Latest Articles"
+      title="What business teams are reading now"
+      description="Content designed to help founders, managers, and accounts teams take faster decisions."
+    />
+
+    <div class="post-grid">
+      @for (post of posts; track post.title) {
+        <article class="post-card">
+          <span>{{ post.category }}</span>
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.summary }}</p>
+          <a routerLink="/contact">{{ post.readTime }} →</a>
+        </article>
+      }
+    </div>
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="Blog campaign sample visual"
+    eyebrow="Featured Story"
+    title="Add blog cover image, thought leadership banner, or campaign poster here"
+    description="Content pages me visual storytelling add karne ke liye yeh block perfect hai."
+    pointOne="Increase time on page"
+    pointTwo="Stronger content branding"
+    pointThree="Better conversion intent"
+    ctaText="Read More Insights"
+    ctaLink="/contact"
+  />
+</main>

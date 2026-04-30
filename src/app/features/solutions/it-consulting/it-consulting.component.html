@@ -1,0 +1,43 @@
+<main class="solution-page">
+  <section class="hero">
+    <p class="eyebrow">IT Consulting</p>
+    <h1>Strategic technology guidance for sustainable business growth</h1>
+    <p>
+      We help leadership teams make better IT decisions across systems, security, and process transformation
+      with a practical consulting-first approach.
+    </p>
+    <a routerLink="/contact" class="btn-primary">Talk to Consultant</a>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Consulting Focus"
+      title="Decision support where business and technology meet"
+      description="Ideal for businesses planning modernization, process refinement, or expansion."
+      [center]="true"
+    />
+    <div class="grid">
+      @for (item of consultingAreas; track item.title) {
+        <app-feature-card
+          [icon]="item.icon"
+          [title]="item.title"
+          [description]="item.description"
+        />
+      }
+    </div>
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="IT consulting sample visual"
+    eyebrow="Consulting Visual"
+    title="Add strategic consulting deck/infographic visual here"
+    description="Leadership-oriented pages me visual strategy frameworks trust aur clarity dono improve karte hain."
+    pointOne="Roadmap snapshot image"
+    pointTwo="Risk to readiness storyline"
+    pointThree="Decision framework visual"
+    ctaText="Book Consulting Call"
+    ctaLink="/contact"
+    [reverse]="true"
+  />
+</main>

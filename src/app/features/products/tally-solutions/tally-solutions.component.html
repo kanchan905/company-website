@@ -1,0 +1,38 @@
+<main class="product-page">
+  <section class="hero">
+    <p class="eyebrow">Tally Solutions</p>
+    <h1>Tally-powered accounting workflows designed for business speed and control</h1>
+    <p>
+      We help businesses implement, optimize, and scale Tally usage with better process setup,
+      cleaner reporting, and practical training for teams.
+    </p>
+    <a routerLink="/contact" class="btn-primary">Book Tally Consultation</a>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Core Benefits"
+      title="Make Tally work as a business growth system, not just accounting software"
+      description="Implementation approach focused on accuracy, speed, and daily operational clarity."
+      [center]="true"
+    />
+    <div class="grid">
+      @for (item of productHighlights; track item.title) {
+        <app-feature-card [icon]="item.icon" [title]="item.title" [description]="item.description" />
+      }
+    </div>
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="Tally product sample visual"
+    eyebrow="Product Visual"
+    title="Place Tally dashboard or workflow screenshot in this section"
+    description="Yaha aap Tally reports, sales summary, outstanding reminder screen, ya campaign poster show kar sakte ho."
+    pointOne="Show clarity in reports"
+    pointTwo="Highlight speed in billing"
+    pointThree="Build product trust instantly"
+    ctaText="Request Product Demo"
+    ctaLink="/contact"
+  />
+</main>

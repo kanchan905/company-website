@@ -1,0 +1,56 @@
+<main class="solution-page">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">ERP Solutions</p>
+      <h1>Unify finance, inventory, and operations with one intelligent ERP backbone</h1>
+      <p>
+        We design ERP systems for growing businesses so teams can move faster with clean data,
+        predictable workflows, and real-time visibility.
+      </p>
+      <div class="hero-actions">
+        <a routerLink="/contact" class="btn-primary">Book ERP Assessment</a>
+        <a routerLink="/company/clients" class="btn-secondary">See Client Outcomes</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      @for (item of stats; track item.label) {
+        <article>
+          <h3>{{ item.value }}</h3>
+          <p>{{ item.label }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Core ERP Modules"
+      title="Everything required to run daily operations at scale"
+      description="Modular architecture so you can start focused and expand as business complexity grows."
+      [center]="true"
+    />
+    <div class="grid">
+      @for (item of modules; track item.title) {
+        <app-feature-card
+          [icon]="item.icon"
+          [title]="item.title"
+          [description]="item.description"
+          [compact]="item.compact"
+        />
+      }
+    </div>
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="ERP solution sample visual"
+    eyebrow="ERP Campaign"
+    title="Display ERP dashboard screenshot or campaign image here"
+    description="Yaha aap product interface, process map, ya transformation graphic show kar sakte ho."
+    pointOne="Visualize reporting clarity"
+    pointTwo="Show module highlights"
+    pointThree="Add business impact message"
+    ctaText="Request ERP Demo"
+    ctaLink="/contact"
+  />
+</main>

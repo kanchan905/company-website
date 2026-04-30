@@ -1,0 +1,17 @@
+<section class="media-highlight" [class.reverse]="reverse()">
+  <article class="image-card">
+    <img [src]="imageSrc()" [alt]="imageAlt()" />
+  </article>
+
+  <article class="content-card">
+    <p class="eyebrow">{{ eyebrow() }}</p>
+    <h2>{{ title() }}</h2>
+    <p class="description">{{ description() }}</p>
+    <ul>
+      @if (pointOne()) { <li>{{ pointOne() }}</li> }
+      @if (pointTwo()) { <li>{{ pointTwo() }}</li> }
+      @if (pointThree()) { <li>{{ pointThree() }}</li> }
+    </ul>
+    <a class="btn-primary" [routerLink]="ctaLink()">{{ ctaText() }}</a>
+  </article>
+</section>

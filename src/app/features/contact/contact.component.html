@@ -1,0 +1,73 @@
+<main class="contact-page">
+  <section class="hero">
+    <p class="eyebrow">Contact Us</p>
+    <h1>Let us build the right solution for your business goals</h1>
+    <p>
+      Share your requirement and our team will connect with a practical roadmap.
+      You can also use this form as a quick <strong>Get a Quote</strong> request.
+    </p>
+  </section>
+
+  <section class="contact-grid">
+    <article class="quote-form-card">
+      <app-section-heading
+        eyebrow="Get A Quote"
+        title="Tell us what you need"
+        description="Fill basic details and our team will share a suitable proposal."
+      />
+
+      <form class="quote-form" action="#">
+        <label>
+          Full Name
+          <input type="text" placeholder="Enter your name" />
+        </label>
+
+        <label>
+          Phone Number
+          <input type="tel" placeholder="Enter phone number" />
+        </label>
+
+        <label>
+          Email Address
+          <input type="email" placeholder="Enter email address" />
+        </label>
+
+        <label>
+          Service / Product
+          <select>
+            <option>Web Development</option>
+            <option>Mobile Apps</option>
+            <option>UI/UX Design</option>
+            <option>SEO Services</option>
+            <option>Tally Solutions</option>
+            <option>CRM System</option>
+            <option>Billing Software</option>
+          </select>
+        </label>
+
+        <label>
+          Your Requirement
+          <textarea rows="4" placeholder="Briefly describe your project..."></textarea>
+        </label>
+
+        <button type="button" class="btn-primary">Submit Quote Request</button>
+      </form>
+    </article>
+
+    <aside class="contact-card">
+      <h2>Direct Contact</h2>
+      <p>Prefer direct conversation? Reach out and our team will assist quickly.</p>
+
+      <div class="contact-points">
+        @for (item of contactPoints; track item.label) {
+          <article>
+            <h3>{{ item.label }}</h3>
+            <p>{{ item.value }}</p>
+          </article>
+        }
+      </div>
+
+      <a class="btn-ghost" routerLink="/">Back to Home</a>
+    </aside>
+  </section>
+</main>

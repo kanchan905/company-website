@@ -1,0 +1,43 @@
+<main class="service-page">
+  <section class="hero">
+    <p class="eyebrow">Mobile Apps</p>
+    <h1>Build fast, intuitive mobile apps that teams and customers actually use</h1>
+    <p>
+      We develop business-first mobile apps with smooth UX, high performance, and backend integration
+      for real-world usage at scale.
+    </p>
+    <a routerLink="/contact" class="btn-primary">Build Mobile App</a>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="App Services"
+      title="From concept to launch, we cover the full mobile lifecycle"
+      description="Design, development, testing, and support focused on outcomes."
+      [center]="true"
+    />
+    <div class="grid">
+      @for (item of appTypes; track item.title) {
+        <app-feature-card
+          [icon]="item.icon"
+          [title]="item.title"
+          [description]="item.description"
+        />
+      }
+    </div>
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="Mobile app sample visual"
+    eyebrow="App Showcase"
+    title="Use a real app screen, dashboard, or play store creative here"
+    description="Is section me aap mobile UI screenshots ka collage ya campaign poster use kar sakte ho."
+    pointOne="Shows product maturity"
+    pointTwo="Builds confidence for prospects"
+    pointThree="Improves conversion quality"
+    ctaText="Get Mobile Consultation"
+    ctaLink="/contact"
+    [reverse]="true"
+  />
+</main>

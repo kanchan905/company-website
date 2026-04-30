@@ -1,0 +1,86 @@
+<main class="company-page">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">About Company</p>
+      <h1>We help businesses move from confusion to control with modern systems</h1>
+      <p>
+        From Tally implementation to automation consulting, we design workflows that are easy for teams,
+        transparent for owners, and scalable for growth.
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" routerLink="/contact">Book Strategy Call</a>
+        <a class="btn-secondary" routerLink="/company/clients">View Client Success</a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      @for (item of stats; track item.label) {
+        <article>
+          <h3>{{ item.value }}</h3>
+          <p>{{ item.label }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="pillars">
+    @for (item of pillars; track item.title) {
+      <article>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </article>
+    }
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="About company campaign sample"
+    eyebrow="Visual Story"
+    title="Replace this with your actual brand campaign visual"
+    description="Aap `public/images` folder me image add karke yaha filename update kar sakte ho."
+    pointOne="Brand trust improve hota hai"
+    pointTwo="Page less text-heavy lagta hai"
+    pointThree="Visual recall better hota hai"
+    ctaText="Add Your Image"
+    ctaLink="/contact"
+  />
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Who We Are"
+      title="Built to simplify finance, compliance, and operations"
+      description="Hamari team deployment ke baad bhi saath rehti hai, taaki systems sirf live na ho, real value bhi deliver kare."
+      [center]="true"
+    />
+
+    <div class="grid">
+      @for (item of values; track item.title) {
+        <app-feature-card
+          [icon]="item.icon"
+          [title]="item.title"
+          [description]="item.description"
+          [compact]="true"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="section timeline">
+    <app-section-heading
+      eyebrow="Journey"
+      title="How we have evolved over the years"
+      description="Ek practical journey: software setup se business transformation partner banne tak."
+      [center]="true"
+    />
+
+    <div class="timeline-grid">
+      @for (step of milestones; track step.year) {
+        <article class="timeline-card">
+          <span>{{ step.year }}</span>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </article>
+      }
+    </div>
+  </section>
+</main>

@@ -1,0 +1,44 @@
+<main class="solution-page">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Business Automation</p>
+      <h1>Replace repetitive manual work with reliable automated workflows</h1>
+      <p>
+        We map your current process and automate high-friction activities so teams save time,
+        reduce errors, and focus on revenue-driving work.
+      </p>
+    </div>
+    <a routerLink="/contact" class="btn-primary">Automate My Process</a>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Automation Areas"
+      title="High-impact automation for everyday business tasks"
+      description="Built for practical adoption, measurable outcomes, and smooth team transition."
+      [center]="true"
+    />
+    <div class="grid">
+      @for (item of automations; track item.title) {
+        <app-feature-card
+          [icon]="item.icon"
+          [title]="item.title"
+          [description]="item.description"
+        />
+      }
+    </div>
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="Business automation sample visual"
+    eyebrow="Automation Campaign"
+    title="Show reminder automation or workflow map visual here"
+    description="Aapke automation features ko visual format me dikhane se value immediately samajh aati hai."
+    pointOne="Collections reminder use-case"
+    pointTwo="Operations follow-up flow"
+    pointThree="Manual effort reduction message"
+    ctaText="Automate Now"
+    ctaLink="/contact"
+  />
+</main>

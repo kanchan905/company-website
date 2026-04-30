@@ -1,0 +1,82 @@
+<main class="company-page">
+  <section class="hero">
+    <p class="eyebrow">Careers</p>
+    <h1>Grow your career while solving meaningful business problems</h1>
+    <p>
+      Join a team that combines domain knowledge, strong execution, and supportive mentorship.
+      Your work directly impacts how businesses run every day.
+    </p>
+    <a routerLink="/contact" class="hero-cta">Share Your Profile</a>
+  </section>
+
+  <section class="section reasons">
+    <app-section-heading
+      eyebrow="Why Join Us"
+      title="A workplace built for impact and growth"
+      description="We value ownership, consistency, and customer-first thinking."
+      [center]="true"
+    />
+
+    <div class="reason-grid">
+      @for (item of reasons; track item.title) {
+        <article class="reason-card">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <app-media-highlight
+    imageSrc="images/logo.jpeg"
+    imageAlt="Careers campaign sample"
+    eyebrow="Life At Company"
+    title="Use hiring campaign poster or workplace visual in this block"
+    description="Aap recruitment creatives ko yaha rakh kar careers page ko stronger बना सकते हो."
+    pointOne="Hiring branding improve"
+    pointTwo="Candidate engagement better"
+    pointThree="More premium page feel"
+    ctaText="Apply With Us"
+    ctaLink="/contact"
+  />
+
+  <section class="section process">
+    <app-section-heading
+      eyebrow="Hiring Process"
+      title="Simple and transparent selection flow"
+      description="We focus on capability, intent, and cultural fit."
+    />
+
+    <div class="process-grid">
+      @for (item of process; track item.step) {
+        <article class="process-card">
+          <span class="step">{{ item.step }}</span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+          <small>{{ item.timeline }}</small>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Open Roles"
+      title="Current opportunities"
+      description="If this sounds like your kind of work, apply now."
+    />
+
+    <div class="job-list">
+      @for (job of openings; track job.role) {
+        <article class="job-card">
+          <div>
+            <h3>{{ job.role }}</h3>
+            <p class="meta">{{ job.type }} • {{ job.location }}</p>
+            <p class="summary">{{ job.summary }}</p>
+          </div>
+          <a routerLink="/contact">Apply Now</a>
+        </article>
+      }
+    </div>
+  </section>
+</main>
