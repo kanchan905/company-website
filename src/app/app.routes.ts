@@ -116,6 +116,12 @@ export const routes: Routes = [
         .then(m => m.FaqsComponent)
   },
   {
+    path: 'get-quote',
+    loadComponent: () =>
+      import('./features/get-quote/get-quote.component')
+        .then(m => m.GetQuoteComponent)
+  },
+  {
     path: 'contact',
     loadComponent: () =>
       import('./features/contact/contact.component')

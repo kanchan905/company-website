@@ -18,9 +18,9 @@
   .eyebrow::before {
     content: "";
     width: 28px;
-    height: 2px;
+    height: 3px;
     border-radius: 999px;
-    background: var(--blue-gradient);
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-blue) 60%, var(--tally-yellow) 60%, var(--tally-yellow) 100%);
   }
 
   h2 {

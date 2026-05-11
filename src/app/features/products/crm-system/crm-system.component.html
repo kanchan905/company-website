@@ -1,41 +1,212 @@
-<main class="product-page">
+<main class="crm-page">
   <section class="hero">
-    <div>
-      <p class="eyebrow">CRM System</p>
-      <h1>Convert more leads and manage customer relationships with confidence</h1>
-      <p>
-        A practical CRM setup that gives your sales and management teams clear visibility,
-        better follow-up control, and predictable growth tracking.
+    <div class="hero-content">
+      <span class="offer-tag">
+        <span class="dot"></span> CRM System
+      </span>
+
+      <h1>
+        <span class="text-gradient">Lightweight CRM</span> that your sales team will actually use
+      </h1>
+
+      <p class="hero-text">
+        Leads, follow-ups, quotations, and owner dashboards — <strong>WhatsApp + Tally friendly</strong>.
+        A practical CRM built for SMBs. Setup, training, and support — all from softTech.
       </p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" routerLink="/contact">Book CRM demo</a>
+        <a class="btn-ghost" routerLink="/products/tally-solutions">
+          <span class="play-icon">▶</span> Tally integration
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
+      </div>
     </div>
-    <a routerLink="/contact" class="btn-primary">Get CRM Demo</a>
+
+    <aside class="crm-mock">
+      <div class="cm-window">
+        <div class="cm-bar">
+          <span>Sales Pipeline</span>
+          <span class="cm-flag">This week</span>
+        </div>
+
+        <div class="cm-columns">
+          <div class="cm-col">
+            <p class="cm-col-title">New</p>
+            <div class="cm-card">
+              <strong>Sharma Traders</strong>
+              <small>₹ 1.2L · Source: Web</small>
+              <span class="cm-pill blue">Today</span>
+            </div>
+            <div class="cm-card">
+              <strong>Verma Steels</strong>
+              <small>₹ 80k · WhatsApp</small>
+              <span class="cm-pill">+2d</span>
+            </div>
+          </div>
+
+          <div class="cm-col accent">
+            <p class="cm-col-title">Quoted</p>
+            <div class="cm-card hot">
+              <strong>Goyal &amp; Sons</strong>
+              <small>₹ 3.4L · Tally setup</small>
+              <span class="cm-pill yellow">Follow-up ⏰</span>
+            </div>
+            <div class="cm-card">
+              <strong>Singla Ent.</strong>
+              <small>₹ 1.6L · TallyPrime Gold</small>
+              <span class="cm-pill">Tomorrow</span>
+            </div>
+          </div>
+
+          <div class="cm-col">
+            <p class="cm-col-title">Won</p>
+            <div class="cm-card done">
+              <strong>Aggarwal Industries</strong>
+              <small>₹ 2.1L · AMC + Tally</small>
+              <span class="cm-pill green">✓ Won</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cm-foot">
+          <span class="cm-foot-tag">Owner view</span>
+          <strong>Pipeline ₹ 9.0L · 3 follow-ups today</strong>
+        </div>
+      </div>
+    </aside>
   </section>
 
-  <section class="section">
-    <app-section-heading
-      eyebrow="CRM Features"
-      title="Built to improve conversion, retention, and team productivity"
-      description="Simple for teams, powerful for leadership decisions."
-      [center]="true"
-    />
-    <div class="grid">
-      @for (item of crmModules; track item.title) {
-        <app-feature-card [icon]="item.icon" [title]="item.title" [description]="item.description" />
+  <section class="stats">
+    <div class="stats-inner">
+      @for (item of heroStats; track item.label) {
+        <div class="stat-item">
+          <h3>{{ item.value }}</h3>
+          <p>{{ item.label }}</p>
+        </div>
       }
     </div>
   </section>
 
-  <app-media-highlight
-    imageSrc="images/logo.jpeg"
-    imageAlt="CRM product sample visual"
-    eyebrow="CRM Campaign"
-    title="Add CRM dashboard, lead funnel, or sales tracker image here"
-    description="Visual CRM proof se prospects ko immediately samajh aata hai ki product kaise help karega."
-    pointOne="Lead funnel snapshot"
-    pointTwo="Sales dashboard preview"
-    pointThree="Follow-up pipeline view"
-    ctaText="Talk to CRM Expert"
-    ctaLink="/contact"
-    [reverse]="true"
-  />
+  <section class="section">
+    <app-section-heading
+      eyebrow="Why this CRM"
+      title="Practical sales tool — not feature bloat"
+      description="Adoption matters most. We expose only essential screens so sales reps use them every day."
+      [center]="true"
+    />
+
+    <div class="grid four-col">
+      @for (w of whyCrm; track w.title) {
+        <article class="why-card">
+          <span class="wc-icon" aria-hidden="true">{{ w.icon }}</span>
+          <h3>{{ w.title }}</h3>
+          <p>{{ w.description }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Modules"
+      title="Everything you need to run sales"
+      description="From lead capture through quotations and reports — one connected flow with modular configuration."
+      [center]="true"
+    />
+
+    <div class="grid three-col">
+      @for (m of modules; track m.title) {
+        <app-feature-card
+          [icon]="m.icon"
+          [title]="m.title"
+          [description]="m.description"
+          [linkText]="m.linkText"
+          [link]="m.link"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <app-section-heading
+      eyebrow="Integrations"
+      title="Plays well with your existing stack"
+      description="Tally, WhatsApp, website, email — duplicate entry minimum, visibility maximum."
+      [center]="true"
+    />
+
+    <div class="stack-grid">
+      @for (i of integrations; track i.name) {
+        <article class="stack-card">
+          <span class="stack-icon" aria-hidden="true">{{ i.icon }}</span>
+          <div>
+            <h3>{{ i.name }}</h3>
+            <p>{{ i.detail }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Process"
+      title="From Excel to organised CRM in 4 steps"
+      description="Predictable rollout — typical SMB go-live in 1–2 weeks."
+      [center]="true"
+    />
+
+    <div class="steps-row">
+      @for (p of process; track p.step) {
+        <article class="step-chip">
+          <span class="step-num">{{ p.step }}</span>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.detail }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section faq-block">
+    <app-section-heading
+      eyebrow="FAQ"
+      title="Common CRM questions"
+      description="Start here before booking a detailed demo."
+      [center]="true"
+    />
+
+    <div class="faq-list">
+      @for (f of faqs; track f.q) {
+        <details class="faq-item">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      }
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-content">
+      <p class="eyebrow eyebrow-light">Next step</p>
+      <h2>See your sales process organised in a CRM</h2>
+      <p>
+        A 45-minute demo plus short discovery — see how your leads, quotations, and follow-ups appear in the CRM
+        with a live walkthrough. We can show Excel import on the same call.
+      </p>
+      <div class="cta-actions">
+        <a class="btn-primary btn-on-dark" routerLink="/contact">Book CRM demo</a>
+        <a class="btn-ghost btn-on-dark" href="tel:+918222845550">📞 +91 82228 45550</a>
+      </div>
+    </div>
+    <div class="cta-note">
+      <p><strong>softTech</strong> — CRM + Tally + automation under one roof</p>
+      <p>SCO 32, Ground Floor, HSIIDC Commercial Complex, Kundli 131028</p>
+    </div>
+  </section>
 </main>

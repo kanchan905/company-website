@@ -1,37 +1,150 @@
-<main class="resource-page">
+<main class="faq-page">
   <section class="hero">
-    <p class="eyebrow">FAQs</p>
-    <h1>Answers to the most common questions from our clients</h1>
-    <p>Quick clarity on process, timelines, support, and implementation approach.</p>
+    <div class="hero-content">
+      <span class="offer-tag">
+        <span class="dot"></span> Frequently asked questions
+      </span>
+
+      <h1>
+        Quick, honest answers about
+        <span class="text-gradient">working with softTech</span>
+      </h1>
+
+      <p class="hero-text">
+        <strong>Tally licensing, support SLA, security, pricing</strong> — consolidated here.
+        If your exact question is missing, reach us via phone or email below.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" routerLink="/contact">Ask your question</a>
+        <a class="btn-ghost" href="tel:+918222845550">
+          <span class="play-icon">▶</span> +91 82228 45550
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
+      </div>
+    </div>
+
+    <aside class="hero-panel">
+      <p class="panel-tag">Why this page exists</p>
+      <h2>Clarity first — then engagement.</h2>
+      <ul class="panel-list">
+        <li><span class="li-icon">✓</span> Genuine Tally licensing model</li>
+        <li><span class="li-icon">✓</span> Written quotes &amp; AMC scope</li>
+        <li><span class="li-icon">✓</span> Same-day reply on enquiries</li>
+        <li><span class="li-icon">✓</span> Owner-level escalation path</li>
+      </ul>
+      <a routerLink="/about" class="panel-link">More about us →</a>
+    </aside>
   </section>
 
-  <section class="section">
-    <app-section-heading
-      eyebrow="Common Questions"
-      title="Need fast answers before you start?"
-      description="If your question is not listed, connect with us and we will help you quickly."
-    />
-
-    <div class="faq-grid">
-      @for (item of faqs; track item.question) {
-        <article class="faq-card">
-          <h3>{{ item.question }}</h3>
-          <p>{{ item.answer }}</p>
-        </article>
+  <section class="stats">
+    <div class="stats-inner">
+      @for (item of heroStats; track item.label) {
+        <div class="stat-item">
+          <h3>{{ item.value }}</h3>
+          <p>{{ item.label }}</p>
+        </div>
       }
     </div>
   </section>
 
-  <app-media-highlight
-    imageSrc="images/logo.jpeg"
-    imageAlt="FAQ support sample visual"
-    eyebrow="Support Visual"
-    title="Add support process image or helpdesk visual here"
-    description="FAQs page me support visual add karne se trust aur response confidence dono बढ़ते हैं."
-    pointOne="Show response SLA graphic"
-    pointTwo="Support workflow snapshot"
-    pointThree="Client help timeline visual"
-    ctaText="Ask Your Question"
-    ctaLink="/contact"
-  />
+  <section class="section">
+    <app-section-heading
+      eyebrow="Categories"
+      title="Pick a topic that matches your concern"
+      description="Switch categories — answers below refresh instantly."
+      [center]="true"
+    />
+
+    <div class="cat-tabs">
+      @for (c of categories; track c.id) {
+        <button
+          type="button"
+          class="cat-tab"
+          [class.active]="activeId() === c.id"
+          (click)="setActive(c.id)"
+        >
+          <span class="ct-ico" aria-hidden="true">{{ c.icon }}</span>
+          <span class="ct-meta">
+            <strong [innerHTML]="c.title"></strong>
+            <small>{{ c.items.length }} answers</small>
+          </span>
+        </button>
+      }
+    </div>
+
+    @for (c of categories; track c.id) {
+      @if (activeId() === c.id) {
+        <div class="cat-panel">
+          <p class="cp-blurb"><strong [innerHTML]="c.title"></strong> — {{ c.blurb }}</p>
+
+          <div class="faq-list">
+            @for (f of c.items; track f.q) {
+              <details class="faq-item">
+                <summary>{{ f.q }}</summary>
+                <p>{{ f.a }}</p>
+              </details>
+            }
+          </div>
+        </div>
+      }
+    }
+  </section>
+
+  <section class="section section-soft">
+    <app-section-heading
+      eyebrow="Still unsure?"
+      title="Talk to someone — not a chatbot"
+      description="Honest guidance for your context (Tally edition, branches, team size) — first 20 minutes complimentary."
+      [center]="true"
+    />
+
+    <div class="contact-cards">
+      <article class="ct-card">
+        <span class="ct-card-ico" aria-hidden="true">📞</span>
+        <h3>Call</h3>
+        <p>Owner / senior engineer directly. Working hours: Mon–Sat.</p>
+        <a href="tel:+918222845550" class="ct-link">+91 82228 45550</a>
+      </article>
+
+      <article class="ct-card">
+        <span class="ct-card-ico" aria-hidden="true">✉️</span>
+        <h3>Email</h3>
+        <p>Attach a detailed brief, screenshots, or sample reports.</p>
+        <a href="mailto:tyagi.sts%40gmail.com?subject=FAQ%20follow-up" class="ct-link">
+          tyagi.sts&#64;gmail.com
+        </a>
+      </article>
+
+      <article class="ct-card">
+        <span class="ct-card-ico" aria-hidden="true">📍</span>
+        <h3>Visit</h3>
+        <p>SCO 32, Ground Floor, HSIIDC Commercial Complex, Kundli 131028.</p>
+        <a routerLink="/contact" class="ct-link">Schedule a visit →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-content">
+      <p class="eyebrow eyebrow-light">Next step</p>
+      <h2>Have a question we haven’t answered?</h2>
+      <p>
+        Describe your situation in 2–3 lines — we reply the same or next working day with realistic options and cost bands.
+      </p>
+      <div class="cta-actions">
+        <a class="btn-primary btn-on-dark" routerLink="/contact">Send your question</a>
+        <a class="btn-ghost btn-on-dark" href="tel:+918222845550">📞 +91 82228 45550</a>
+      </div>
+    </div>
+    <div class="cta-note">
+      <p><strong>softTech</strong> — Tally 5-Star Certified Partner</p>
+      <p>SCO 32, Ground Floor, HSIIDC Commercial Complex, Kundli 131028</p>
+    </div>
+  </section>
 </main>

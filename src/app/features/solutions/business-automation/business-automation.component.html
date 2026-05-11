@@ -1,44 +1,248 @@
-<main class="solution-page">
+<main class="automation-page">
   <section class="hero">
-    <div>
-      <p class="eyebrow">Business Automation</p>
-      <h1>Replace repetitive manual work with reliable automated workflows</h1>
-      <p>
-        We map your current process and automate high-friction activities so teams save time,
-        reduce errors, and focus on revenue-driving work.
+    <div class="hero-content">
+      <span class="offer-tag">
+        <span class="dot"></span> Business Automation
+      </span>
+
+      <h1>
+        Stop wasting time on
+        <span class="text-gradient">repeating tasks</span>
+      </h1>
+
+      <p class="hero-text">
+        Daily follow-ups, manual invoices, GST chaos, and missing reports —
+        <strong>TallyPrime</strong> plus WhatsApp / email automation can remove most of that overhead.
+        We design, configure, and monitor the workflows.
       </p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" routerLink="/contact">Get Automation Audit</a>
+        <a class="btn-ghost" href="#automations">
+          <span class="play-icon">▶</span> See automations
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
+      </div>
     </div>
-    <a routerLink="/contact" class="btn-primary">Automate My Process</a>
+
+    <!-- Right side: animated automation flow -->
+    <aside class="flow-card">
+      <div class="flow-ribbon">
+        <span>⚡</span>
+        <span>Automation in action</span>
+      </div>
+
+      <div class="flow-body">
+        <div class="flow-step">
+          <span class="fs-icon">🧾</span>
+          <div class="fs-meta">
+            <small>Invoice raised in</small>
+            <strong>TallyPrime</strong>
+          </div>
+          <span class="fs-status">Auto</span>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">↓</div>
+
+        <div class="flow-step">
+          <span class="fs-icon">📤</span>
+          <div class="fs-meta">
+            <small>E-invoice + IRN</small>
+            <strong>Generated &amp; pushed</strong>
+          </div>
+          <span class="fs-status ok">✓ Done</span>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">↓</div>
+
+        <div class="flow-step">
+          <span class="fs-icon">💬</span>
+          <div class="fs-meta">
+            <small>WhatsApp sent to</small>
+            <strong>Customer + Owner</strong>
+          </div>
+          <span class="fs-status ok">✓ Sent</span>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">↓</div>
+
+        <div class="flow-step accent">
+          <span class="fs-icon">⏰</span>
+          <div class="fs-meta">
+            <small>Reminder scheduled</small>
+            <strong>30 / 60 / 90 days</strong>
+          </div>
+          <span class="fs-status warn">Queued</span>
+        </div>
+      </div>
+
+      <div class="flow-foot">
+        <span aria-hidden="true">⏱️</span>
+        <span>Total manual time: <strong>0 minutes</strong></span>
+      </div>
+    </aside>
+  </section>
+
+  <section class="stats">
+    <div class="stats-inner">
+      @for (item of heroStats; track item.label) {
+        <div class="stat-item">
+          <h3>{{ item.value }}</h3>
+          <p>{{ item.label }}</p>
+        </div>
+      }
+    </div>
   </section>
 
   <section class="section">
     <app-section-heading
-      eyebrow="Automation Areas"
-      title="High-impact automation for everyday business tasks"
-      description="Built for practical adoption, measurable outcomes, and smooth team transition."
+      eyebrow="The Pain"
+      title="Do these problems sound familiar?"
+      description="If even two happen daily in your business — automation ROI usually appears within a month."
       [center]="true"
     />
-    <div class="grid">
-      @for (item of automations; track item.title) {
+
+    <div class="grid four-col">
+      @for (p of pains; track p.title) {
+        <article class="pain-card">
+          <span class="pn-icon" aria-hidden="true">{{ p.icon }}</span>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.description }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section" id="automations">
+    <app-section-heading
+      eyebrow="Our Automations"
+      title="Tally-based automations we deploy daily"
+      description="All integrate natively with TallyPrime — no separate dashboard pile-up."
+      [center]="true"
+    />
+
+    <div class="grid three-col">
+      @for (a of automations; track a.title) {
         <app-feature-card
-          [icon]="item.icon"
-          [title]="item.title"
-          [description]="item.description"
+          [icon]="a.icon"
+          [title]="a.title"
+          [description]="a.description"
+          [linkText]="a.linkText"
+          [link]="a.link"
         />
       }
     </div>
   </section>
 
-  <app-media-highlight
-    imageSrc="images/logo.jpeg"
-    imageAlt="Business automation sample visual"
-    eyebrow="Automation Campaign"
-    title="Show reminder automation or workflow map visual here"
-    description="Aapke automation features ko visual format me dikhane se value immediately samajh aati hai."
-    pointOne="Collections reminder use-case"
-    pointTwo="Operations follow-up flow"
-    pointThree="Manual effort reduction message"
-    ctaText="Automate Now"
-    ctaLink="/contact"
-  />
+  <section class="section impact-section">
+    <app-section-heading
+      eyebrow="Before vs After"
+      title="Real impact in numbers"
+      description="Real transitions from our clients — retailers, distributors, and manufacturers across Sonipat and Panipat."
+      [center]="true"
+    />
+
+    <div class="impact-card">
+      <div class="impact-head">
+        <span>Activity</span>
+        <span class="ih-before">Before automation</span>
+        <span class="ih-after">After automation</span>
+      </div>
+
+      @for (row of impactRows; track row.label) {
+        <div class="impact-row">
+          <span class="ir-label">{{ row.label }}</span>
+          <span class="ir-before">
+            <span class="cross" aria-hidden="true">×</span> {{ row.before }}
+          </span>
+          <span class="ir-after">
+            <span class="tick" aria-hidden="true">✓</span> {{ row.after }}
+          </span>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <app-section-heading
+      eyebrow="Our Approach"
+      title="4-step automation rollout"
+      description="No big bang. We begin with quick wins so staff and owners build confidence early."
+      [center]="true"
+    />
+
+    <div class="steps-grid">
+      @for (s of steps; track s.step) {
+        <article class="step-card">
+          <span class="step-num">{{ s.step }}</span>
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.detail }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Tools we use"
+      title="Best-in-class — already in your ecosystem"
+      description="We do not introduce a heavy new stack. Automations sit inside your existing TallyPrime + WhatsApp + Quick Heal footprint."
+      [center]="true"
+    />
+
+    <div class="tools-grid">
+      @for (t of tools; track t.title) {
+        <article class="tool-card">
+          <span class="tl-icon">{{ t.icon }}</span>
+          <div>
+            <h3>{{ t.title }}</h3>
+            <p>{{ t.text }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section faq-block">
+    <app-section-heading
+      eyebrow="FAQ"
+      title="Your common questions"
+      description="Short answers — detailed roadmap on the free audit call."
+      [center]="true"
+    />
+
+    <div class="faq-list">
+      @for (f of faqs; track f.q) {
+        <details class="faq-item">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      }
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-content">
+      <p class="eyebrow eyebrow-light">Next step</p>
+      <h2>30-minute audit — we pinpoint the biggest time sinks at no charge</h2>
+      <p>
+        Our team reviews your daily workflow and sends a written summary of the top three automation
+        opportunities. No commitment, no obligation.
+      </p>
+      <div class="cta-actions">
+        <a class="btn-primary btn-on-dark" routerLink="/contact">Book Free Audit</a>
+        <a class="btn-ghost btn-on-dark" href="tel:+918222845550">📞 +91 82228 45550</a>
+      </div>
+    </div>
+
+    <div class="cta-note">
+      <p><strong>softTech</strong> — Tally 5-Star Certified Partner</p>
+      <p>SCO 32, Ground Floor, HSIIDC Commercial Complex, Kundli 131028</p>
+    </div>
+  </section>
 </main>

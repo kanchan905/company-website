@@ -1,82 +1,289 @@
-<main class="company-page">
+<main class="careers-page">
+  <!-- =============================================
+       HERO
+  ============================================== -->
   <section class="hero">
-    <p class="eyebrow">Careers</p>
-    <h1>Grow your career while solving meaningful business problems</h1>
-    <p>
-      Join a team that combines domain knowledge, strong execution, and supportive mentorship.
-      Your work directly impacts how businesses run every day.
-    </p>
-    <a routerLink="/contact" class="hero-cta">Share Your Profile</a>
+    <div class="hero-content">
+      <span class="offer-tag">
+        <span class="dot"></span> We're Hiring • 6 Open Roles
+      </span>
+
+      <h1>
+        Grow your career while solving
+        <span class="text-gradient">real business problems</span>
+      </h1>
+
+      <p class="hero-text">
+        Join one of Haryana’s trusted <strong>Tally 5-Star Certified Partner</strong> teams.
+        Every implementation tackles a new business problem — and every solution keeps 250+ growing companies running smoothly.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" href="#openings">View Open Roles</a>
+        <a class="btn-ghost" [href]="applyContact.emailHref">
+          <span class="play-icon">▶</span> Send Your CV
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
+      </div>
+    </div>
+
+    <!-- Right side: Apply snapshot card -->
+    <aside class="apply-card">
+      <div class="apply-ribbon">
+        <span>📨</span>
+        <span>Quick Apply</span>
+      </div>
+
+      <div class="apply-body">
+        <h2>Send your CV<br>in 60 seconds</h2>
+        <p class="apply-sub">
+          No long forms. Email or WhatsApp your CV —
+          we reconnect within 1–2 business days.
+        </p>
+
+        <div class="apply-methods">
+          <a class="ap-method primary" [href]="applyContact.emailHref">
+            <span class="ap-icon">✉️</span>
+            <div class="ap-meta">
+              <small>Email CV to</small>
+              <strong>{{ applyContact.email }}</strong>
+            </div>
+            <span class="ap-arrow">→</span>
+          </a>
+
+          <a class="ap-method" [href]="applyContact.whatsapp" target="_blank" rel="noopener">
+            <span class="ap-icon wa">💬</span>
+            <div class="ap-meta">
+              <small>WhatsApp us</small>
+              <strong>{{ applyContact.phone }}</strong>
+            </div>
+            <span class="ap-arrow">→</span>
+          </a>
+
+          <a class="ap-method" [href]="applyContact.phoneHref">
+            <span class="ap-icon">📞</span>
+            <div class="ap-meta">
+              <small>Or call directly</small>
+              <strong>{{ applyContact.phone }}</strong>
+            </div>
+            <span class="ap-arrow">→</span>
+          </a>
+        </div>
+
+        <div class="apply-note">
+          <span>⏱️</span>
+          <span>Average response time: <strong>under 24 hours</strong></span>
+        </div>
+      </div>
+    </aside>
   </section>
 
-  <section class="section reasons">
+  <!-- =============================================
+       STATS COUNTER
+  ============================================== -->
+  <section class="stats">
+    <div class="stats-inner">
+      @for (stat of heroStats; track stat.label) {
+        <div class="stat-item">
+          <h3>{{ stat.value }}</h3>
+          <p>{{ stat.label }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- =============================================
+       WHY JOIN US
+  ============================================== -->
+  <section class="section">
     <app-section-heading
-      eyebrow="Why Join Us"
+      eyebrow="Why Join softTech"
       title="A workplace built for impact and growth"
-      description="We value ownership, consistency, and customer-first thinking."
+      description="Beyond a job — a long-term career foundation. Bring ownership, keep learning, keep growing."
       [center]="true"
     />
 
-    <div class="reason-grid">
+    <div class="grid three-col">
       @for (item of reasons; track item.title) {
-        <article class="reason-card">
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.description }}</p>
-        </article>
+        <app-feature-card
+          [icon]="item.icon"
+          [title]="item.title"
+          [description]="item.description"
+        />
       }
     </div>
   </section>
 
-  <app-media-highlight
-    imageSrc="images/logo.jpeg"
-    imageAlt="Careers campaign sample"
-    eyebrow="Life At Company"
-    title="Use hiring campaign poster or workplace visual in this block"
-    description="Aap recruitment creatives ko yaha rakh kar careers page ko stronger बना सकते हो."
-    pointOne="Hiring branding improve"
-    pointTwo="Candidate engagement better"
-    pointThree="More premium page feel"
-    ctaText="Apply With Us"
-    ctaLink="/contact"
-  />
-
-  <section class="section process">
+  <!-- =============================================
+       PERKS & BENEFITS
+  ============================================== -->
+  <section class="section perks-section">
     <app-section-heading
-      eyebrow="Hiring Process"
-      title="Simple and transparent selection flow"
-      description="We focus on capability, intent, and cultural fit."
+      eyebrow="Perks & Benefits"
+      title="More than just a paycheque"
+      description="What you receive beyond salary matters just as much."
+      [center]="true"
     />
 
-    <div class="process-grid">
-      @for (item of process; track item.step) {
-        <article class="process-card">
-          <span class="step">{{ item.step }}</span>
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.description }}</p>
-          <small>{{ item.timeline }}</small>
+    <div class="perks-grid">
+      @for (perk of perks; track perk.label) {
+        <article class="perk-card">
+          <span class="perk-icon">{{ perk.icon }}</span>
+          <span class="perk-label">{{ perk.label }}</span>
         </article>
       }
     </div>
   </section>
 
-  <section class="section">
+  <!-- =============================================
+       OPEN POSITIONS
+  ============================================== -->
+  <section class="section" id="openings">
     <app-section-heading
-      eyebrow="Open Roles"
-      title="Current opportunities"
-      description="If this sounds like your kind of work, apply now."
+      eyebrow="Open Positions"
+      title="Current opportunities at softTech"
+      description="When your skills match an open role, one call or email is enough — interviews stay simple and transparent."
+      [center]="true"
     />
 
     <div class="job-list">
       @for (job of openings; track job.role) {
-        <article class="job-card">
-          <div>
-            <h3>{{ job.role }}</h3>
-            <p class="meta">{{ job.type }} • {{ job.location }}</p>
-            <p class="summary">{{ job.summary }}</p>
+        <article class="job-card" [class.featured]="job.featured">
+          <div class="job-left">
+            <div class="job-head">
+              <h3>{{ job.role }}</h3>
+              @if (job.tag) {
+                <span class="job-tag" [class]="'tag-' + job.tag.toLowerCase()">
+                  {{ job.tag }}
+                </span>
+              }
+            </div>
+
+            <div class="job-meta">
+              <span class="meta-pill">
+                <span aria-hidden="true">💼</span> {{ job.type }}
+              </span>
+              <span class="meta-pill">
+                <span aria-hidden="true">📊</span> {{ job.experience }}
+              </span>
+              <span class="meta-pill">
+                <span aria-hidden="true">📍</span> {{ job.location }}
+              </span>
+              <span class="meta-pill salary">
+                <span aria-hidden="true">💰</span> {{ job.salary }}
+              </span>
+            </div>
+
+            <p class="job-summary">{{ job.summary }}</p>
+
+            <div class="job-skills">
+              <small>Key Skills:</small>
+              @for (skill of job.skills; track skill) {
+                <span class="skill-chip">{{ skill }}</span>
+              }
+            </div>
           </div>
-          <a routerLink="/contact">Apply Now</a>
+
+          <div class="job-right">
+            <a class="apply-btn" [href]="applyContact.emailHref">
+              Apply Now
+              <span aria-hidden="true">→</span>
+            </a>
+            <a class="apply-wa" [href]="applyContact.whatsapp" target="_blank" rel="noopener">
+              💬 WhatsApp
+            </a>
+          </div>
         </article>
       }
+    </div>
+
+    <p class="no-match">
+      No matching role right now?
+      <a [href]="applyContact.emailHref">Send your CV — we keep strong profiles on file for future openings.</a>
+    </p>
+  </section>
+
+  <!-- =============================================
+       HIRING PROCESS
+  ============================================== -->
+  <section class="section section-soft">
+    <app-section-heading
+      eyebrow="Hiring Process"
+      title="Simple and transparent — 4 steps"
+      description="We weigh capability, intent, and cultural fit. Typical timeline ~7–10 days."
+      [center]="true"
+    />
+
+    <div class="process-grid">
+      @for (item of process; track item.step; let i = $index) {
+        <article class="process-card">
+          <div class="process-top">
+            <span class="step-num">{{ item.step }}</span>
+            <span class="step-icon">{{ item.icon }}</span>
+          </div>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+          <div class="step-timeline">
+            <span aria-hidden="true">⏱️</span>
+            <span>{{ item.timeline }}</span>
+          </div>
+          @if (i < process.length - 1) {
+            <span class="step-connector" aria-hidden="true">→</span>
+          }
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- =============================================
+       FINAL CTA
+  ============================================== -->
+  <section class="cta">
+    <div class="cta-content">
+      <p class="eyebrow eyebrow-light">Ready to Apply?</p>
+      <h2>Let's start a conversation</h2>
+      <p>
+        Tally-certified or newly upskilling — if you want genuine culture and growth inside the Tally domain,
+        we would love to speak with you. Visit or call — our Kundli HSIIDC office welcomes both.
+      </p>
+
+      <div class="cta-actions">
+        <a class="btn-primary btn-on-dark" [href]="applyContact.emailHref">
+          ✉️ Email Your CV
+        </a>
+        <a class="btn-ghost btn-on-dark" [href]="applyContact.whatsapp" target="_blank" rel="noopener">
+          💬 WhatsApp Us
+        </a>
+      </div>
+    </div>
+
+    <div class="cta-info">
+      <a class="info-row" [href]="applyContact.phoneHref">
+        <span class="info-icon">📞</span>
+        <div>
+          <small>Call</small>
+          <strong>{{ applyContact.phone }}</strong>
+        </div>
+      </a>
+      <a class="info-row" [href]="applyContact.emailHref">
+        <span class="info-icon">✉️</span>
+        <div>
+          <small>Email</small>
+          <strong>{{ applyContact.email }}</strong>
+        </div>
+      </a>
+      <div class="info-row">
+        <span class="info-icon">📍</span>
+        <div>
+          <small>Visit Office</small>
+          <strong>SCO 32, Ground Floor, HSIIDC Commercial Complex, Kundli 131028</strong>
+        </div>
+      </div>
     </div>
   </section>
 </main>

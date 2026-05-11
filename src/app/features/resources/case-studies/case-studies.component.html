@@ -1,40 +1,210 @@
-<main class="resource-page">
+<main class="case-page">
   <section class="hero">
-    <p class="eyebrow">Case Studies</p>
-    <h1>Real transformation stories from growing businesses</h1>
-    <p>Explore practical outcomes delivered through better systems, automation, and advisory support.</p>
+    <div class="hero-content">
+      <span class="offer-tag">
+        <span class="dot"></span> Case studies
+      </span>
+
+      <h1>
+        Real outcomes for
+        <span class="text-gradient">SMBs across Haryana &amp; NCR</span>
+      </h1>
+
+      <p class="hero-text">
+        Every story documents <strong>challenge → approach → outcome</strong> —
+        anonymised by sector so you see realistic patterns without client-name noise.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" routerLink="/contact">Request similar engagement</a>
+        <a class="btn-ghost" routerLink="/resources/blog">
+          <span class="play-icon">▶</span> Read insights
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
+      </div>
+    </div>
+
+    <aside class="kpi-mock">
+      <p class="km-tag">{{ featured.tag }}</p>
+      <h2 class="km-title">{{ featured.title }}</h2>
+      <p class="km-industry">{{ featured.industry }}</p>
+
+      <div class="km-bars">
+        <div class="km-row">
+          <span>Follow-up discipline</span>
+          <div class="km-track">
+            <span class="km-fill before" style="width: 38%"></span>
+          </div>
+          <small>Before</small>
+        </div>
+        <div class="km-row">
+          <span>Follow-up discipline</span>
+          <div class="km-track">
+            <span class="km-fill after" style="width: 88%"></span>
+          </div>
+          <small>After</small>
+        </div>
+      </div>
+
+      <ul class="km-list">
+        @for (m of featured.metrics; track m.label) {
+          <li><strong>{{ m.label }}:</strong> {{ m.value }}</li>
+        }
+      </ul>
+
+      <a routerLink="/contact" class="km-cta">Discuss this pattern →</a>
+    </aside>
+  </section>
+
+  <section class="stats">
+    <div class="stats-inner">
+      @for (item of heroStats; track item.label) {
+        <div class="stat-item">
+          <h3>{{ item.value }}</h3>
+          <p>{{ item.label }}</p>
+        </div>
+      }
+    </div>
   </section>
 
   <section class="section">
     <app-section-heading
-      eyebrow="Featured Cases"
-      title="Business results, not just implementation details"
-      description="Each case study highlights clear context: challenge, approach, and measurable outcome."
+      eyebrow="Sectors we cover"
+      title="Filter mentally by your industry"
+      description="Each card lists industry plus tech stack tags — match mentally to your scenario."
+      [center]="true"
+    />
+
+    <div class="sector-row">
+      @for (s of sectors; track s) {
+        <span class="sector-chip">{{ s }}</span>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Featured narrative"
+      title="{{ featured.title }}"
+      description="{{ featured.industry }}"
+      [center]="true"
+    />
+
+    <div class="featured-body">
+      <div class="fb-col">
+        <h3>Challenge</h3>
+        <p>{{ featured.challenge }}</p>
+      </div>
+      <div class="fb-col accent">
+        <h3>Approach</h3>
+        <p>{{ featured.approach }}</p>
+      </div>
+      <div class="fb-col">
+        <h3>Outcome</h3>
+        <p>{{ featured.outcome }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="More cases"
+      title="Snapshot library — same rigour, shorter format"
+      description="Book a workshop-style walkthrough via contact for the deep dive."
+      [center]="true"
     />
 
     <div class="study-grid">
       @for (item of studies; track item.title) {
         <article class="study-card">
+          <div class="sc-top">
+            <span class="sc-ind">{{ item.industry }}</span>
+            <span class="sc-sec">{{ item.sector }}</span>
+          </div>
           <h3>{{ item.title }}</h3>
-          <p><strong>Challenge:</strong> {{ item.challenge }}</p>
-          <p><strong>Outcome:</strong> {{ item.outcome }}</p>
-          <a routerLink="/contact">Request Similar Plan →</a>
+
+          <div class="sc-block">
+            <h4>Challenge</h4>
+            <p>{{ item.challenge }}</p>
+          </div>
+          <div class="sc-block">
+            <h4>Approach</h4>
+            <p>{{ item.approach }}</p>
+          </div>
+          <div class="sc-block">
+            <h4>Outcome</h4>
+            <p>{{ item.outcome }}</p>
+          </div>
+
+          <div class="sc-metrics">
+            @for (met of item.metrics; track met.label) {
+              <span class="sc-pill"><strong>{{ met.label }}</strong> {{ met.value }}</span>
+            }
+          </div>
+
+          <a routerLink="/contact" class="sc-link">Request similar plan →</a>
         </article>
       }
     </div>
   </section>
 
-  <app-media-highlight
-    imageSrc="images/logo.jpeg"
-    imageAlt="Case study sample visual"
-    eyebrow="Case Visual"
-    title="Add before/after chart, dashboard, or campaign image here"
-    description="Case study pages me visual proof outcomes ko aur credible banata hai."
-    pointOne="Show KPI progress"
-    pointTwo="Add operational snapshot"
-    pointThree="Display timeline impact"
-    ctaText="See Your Possibilities"
-    ctaLink="/contact"
-    [reverse]="true"
-  />
+  <section class="section section-soft">
+    <app-section-heading
+      eyebrow="Our method"
+      title="How we build a case-worthy engagement"
+      description="Outcomes become measurable once baseline metrics and review cadence are clear."
+      [center]="true"
+    />
+
+    <div class="steps-row">
+      @for (p of process; track p.step) {
+        <article class="step-chip">
+          <span class="step-num">{{ p.step }}</span>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.detail }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section faq-block">
+    <app-section-heading
+      eyebrow="FAQ"
+      title="About these case studies"
+      description="Clear expectations build stronger trust."
+      [center]="true"
+    />
+
+    <div class="faq-list">
+      @for (f of faqs; track f.q) {
+        <details class="faq-item">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      }
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-content">
+      <p class="eyebrow eyebrow-light">Next step</p>
+      <h2>Turn your situation into the next case study</h2>
+      <p>
+        Share current stack, team size, and top three pain points — we reply within one working day with honest fit and a phased proposal.
+      </p>
+      <div class="cta-actions">
+        <a class="btn-primary btn-on-dark" routerLink="/contact">Start a conversation</a>
+        <a class="btn-ghost btn-on-dark" href="tel:+918222845550">📞 +91 82228 45550</a>
+      </div>
+    </div>
+    <div class="cta-note">
+      <p><strong>softTech</strong> — Tally · CRM · Billing · IT</p>
+      <p>SCO 32, Ground Floor, HSIIDC Commercial Complex, Kundli 131028</p>
+    </div>
+  </section>
 </main>

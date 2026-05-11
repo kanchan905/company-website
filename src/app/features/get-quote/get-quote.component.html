@@ -1,0 +1,121 @@
+<main class="get-quote-page">
+  <section class="hero">
+    <div class="hero-content">
+      <span class="offer-tag">
+        <span class="dot"></span> Get a written quote
+      </span>
+
+      <h1>
+        Share a short brief —
+        <span class="text-gradient">we will reply with realistic numbers</span>
+      </h1>
+
+      <p class="hero-text">
+        Whether you need a Tally licence, AMC, billing, CRM, web, mobile, SEO, or IT consulting,
+        <strong>use the form below</strong> or reach us on WhatsApp / email. We prefer a clear,
+        phased proposal so you can decide step by step.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" href="#quote-form">Start the form</a>
+        <a class="btn-ghost" routerLink="/contact">Full contact page →</a>
+      </div>
+
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
+      </div>
+    </div>
+
+    <aside class="hero-panel">
+      <p class="panel-tag">What we cover in a quote</p>
+      <ul class="checklist">
+        @for (line of checklist; track line) {
+          <li><span class="tick">✓</span> {{ line }}</li>
+        }
+      </ul>
+      <p class="panel-foot">
+        If everything is not clear yet — send what you have anyway. We will ask two to four targeted questions for anything missing.
+      </p>
+    </aside>
+  </section>
+
+  <section class="stats">
+    <div class="stats-inner">
+      @for (item of heroStats; track item.label) {
+        <div class="stat-item">
+          <h3>{{ item.value }}</h3>
+          <p>{{ item.label }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="section trust">
+    <app-section-heading
+      eyebrow="Why ask us"
+      title="Quotes that you can actually compare"
+      description="We prefer a written breakdown over a vague verbal “approx”."
+      [center]="true"
+    />
+
+    <div class="trust-grid">
+      @for (t of trustPoints; track t.title) {
+        <article class="trust-card">
+          <span class="trust-ico" aria-hidden="true">{{ t.icon }}</span>
+          <h3>{{ t.title }}</h3>
+          <p>{{ t.text }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section id="quote-form" class="section form-section">
+    <app-section-heading
+      eyebrow="Request form"
+      title="Tell us what you need"
+      description="Required: name, phone, and requirement. Optional fields make the quote more accurate."
+      [center]="true"
+    />
+
+    <app-quote-request-panel [presetService]="routeServiceHint" />
+  </section>
+
+  <section class="section faq-block">
+    <app-section-heading
+      eyebrow="Quote FAQs"
+      title="Common questions"
+      description="For pricing models and AMC scope, also see Resources → FAQs."
+      [center]="true"
+    />
+
+    <div class="faq-list">
+      @for (f of faqs; track f.q) {
+        <details class="faq-item">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      }
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-content">
+      <p class="eyebrow eyebrow-light">Prefer talking first?</p>
+      <h2>Call +91 82228 45550 — or visit our office.</h2>
+      <p>
+        The form is optional. If a call is easier, describe your current setup and expectations —
+        we will take notes and send a written quote by email or WhatsApp.
+      </p>
+      <div class="cta-actions">
+        <a class="btn-primary btn-on-dark" href="tel:+918222845550">📞 Call now</a>
+        <a class="btn-ghost btn-on-dark" routerLink="/contact">Contact page</a>
+      </div>
+    </div>
+    <div class="cta-note">
+      <p><strong>softTech</strong> — Tally 5-Star Certified Partner</p>
+      <p>SCO 32, Ground Floor, HSIIDC Commercial Complex, Kundli 131028</p>
+    </div>
+  </section>
+</main>

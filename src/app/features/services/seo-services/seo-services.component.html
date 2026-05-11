@@ -1,43 +1,200 @@
-<main class="service-page">
+<main class="seo-page">
   <section class="hero">
-    <p class="eyebrow">SEO Services</p>
-    <h1>Rank higher, get better traffic, and convert search visibility into revenue</h1>
-    <p>
-      We execute SEO strategies focused on business impact: stronger rankings,
-      relevant visitors, and qualified leads.
-    </p>
-    <a routerLink="/contact" class="btn-primary">Start SEO Growth</a>
+    <div class="hero-content">
+      <span class="offer-tag">
+        <span class="dot"></span> SEO Services
+      </span>
+
+      <h1>
+        Get found by buyers
+        <span class="text-gradient">on Google &amp; Maps</span>
+      </h1>
+
+      <p class="hero-text">
+        Technical SEO, on-page optimisation, local SEO, and Google Business Profile —
+        <strong>a practical, white-hat approach for India and NCR</strong>
+        that builds long-term traffic, not short-term tricks.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" routerLink="/contact">Start SEO project</a>
+        <a class="btn-ghost" routerLink="/services/web-development">
+          <span class="play-icon">▶</span> Web development
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
+      </div>
+    </div>
+
+    <aside class="serp-mock">
+      <div class="serp-window">
+        <div class="serp-bar">
+          <span class="sb-dot red"></span>
+          <span class="sb-dot yellow"></span>
+          <span class="sb-dot green"></span>
+          <span class="sb-url">google.com/search</span>
+        </div>
+
+        <div class="serp-search">
+          <span class="sg-icon">🔎</span>
+          <span class="sg-query">tally partner near kundli</span>
+        </div>
+
+        <div class="serp-result top">
+          <div class="sr-meta">softtech.in › solutions › tally</div>
+          <h4>Tally Solutions in Kundli — 5-Star Certified Partner</h4>
+          <p>Genuine Tally licenses, multi-user setup, AMC &amp; training for SMBs in Sonipat / NCR…</p>
+          <span class="sr-badge">Top result</span>
+        </div>
+
+        <div class="serp-result">
+          <div class="sr-meta">softtech.in › services › seo-services</div>
+          <h4>SEO Services — softTech</h4>
+          <p>Local + technical SEO for service-area businesses. White-hat approach, monthly reports…</p>
+        </div>
+
+        <div class="serp-pack">
+          <span class="sp-tag">Map pack</span>
+          <div class="sp-row">
+            <span class="sp-pin">📍</span>
+            <div>
+              <strong>softTech</strong>
+              <small>4.9★ · HSIIDC, Kundli</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="stats">
+    <div class="stats-inner">
+      @for (item of heroStats; track item.label) {
+        <div class="stat-item">
+          <h3>{{ item.value }}</h3>
+          <p>{{ item.label }}</p>
+        </div>
+      }
+    </div>
   </section>
 
   <section class="section">
     <app-section-heading
-      eyebrow="SEO Expertise"
-      title="SEO execution with strategy, structure, and measurable outcomes"
-      description="Technical, content, and local SEO combined for compounding organic growth."
+      eyebrow="Why SEO with us"
+      title="Honest SEO — focused on enquiries, not vanity metrics"
+      description="Rankings feel good, but enquiries and footfall are the real proof. Our reports focus there."
       [center]="true"
     />
-    <div class="grid">
-      @for (item of seoAreas; track item.title) {
+
+    <div class="grid four-col">
+      @for (w of whySeo; track w.title) {
+        <article class="why-card">
+          <span class="wc-icon" aria-hidden="true">{{ w.icon }}</span>
+          <h3>{{ w.title }}</h3>
+          <p>{{ w.description }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Services we offer"
+      title="From audit to ongoing optimisation"
+      description="One-time audit or a monthly retainer — choose what fits your stage."
+      [center]="true"
+    />
+
+    <div class="grid three-col">
+      @for (s of services; track s.title) {
         <app-feature-card
-          [icon]="item.icon"
-          [title]="item.title"
-          [description]="item.description"
+          [icon]="s.icon"
+          [title]="s.title"
+          [description]="s.description"
+          [linkText]="s.linkText"
+          [link]="s.link"
         />
       }
     </div>
   </section>
 
-  <app-media-highlight
-    imageSrc="images/logo.jpeg"
-    imageAlt="SEO sample visual"
-    eyebrow="Growth Visual"
-    title="Place keyword growth graph or SEO campaign visual in this card"
-    description="Visual performance indicators se page credibility aur client trust dono improve hote hain."
-    pointOne="Traffic growth snapshots"
-    pointTwo="Keyword ranking movement"
-    pointThree="Lead generation impact"
-    ctaText="Get SEO Audit"
-    ctaLink="/contact"
-    [reverse]="true"
-  />
+  <section class="section section-soft">
+    <app-section-heading
+      eyebrow="How we work"
+      title="Tools, briefs &amp; reporting"
+      description="Vendor-neutral tools and structured deliverables. You can request audits and reports anytime."
+      [center]="true"
+    />
+
+    <div class="stack-grid">
+      @for (s of stack; track s.name) {
+        <article class="stack-card">
+          <span class="stack-icon" aria-hidden="true">{{ s.icon }}</span>
+          <div>
+            <h3>{{ s.name }}</h3>
+            <p>{{ s.detail }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Process"
+      title="A clear 4-step SEO flow"
+      description="Audit → Plan → Execute → Review. This loop runs every month."
+      [center]="true"
+    />
+
+    <div class="steps-row">
+      @for (p of process; track p.step) {
+        <article class="step-chip">
+          <span class="step-num">{{ p.step }}</span>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.detail }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section faq-block">
+    <app-section-heading
+      eyebrow="FAQ"
+      title="Common questions"
+      description="Transparency matters on SEO topics — call us for any question."
+      [center]="true"
+    />
+
+    <div class="faq-list">
+      @for (f of faqs; track f.q) {
+        <details class="faq-item">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      }
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-content">
+      <p class="eyebrow eyebrow-light">Next step</p>
+      <h2>Get a free starter SEO audit</h2>
+      <p>
+        Share your website URL and three priority services or cities. Within one working day we send a short audit and recommended plan — no obligation.
+      </p>
+      <div class="cta-actions">
+        <a class="btn-primary btn-on-dark" routerLink="/contact">Request audit</a>
+        <a class="btn-ghost btn-on-dark" href="tel:+918222845550">📞 +91 82228 45550</a>
+      </div>
+    </div>
+    <div class="cta-note">
+      <p><strong>softTech</strong> — SEO + Web + Tally under one roof</p>
+      <p>SCO 32, Ground Floor, HSIIDC Commercial Complex, Kundli 131028</p>
+    </div>
+  </section>
 </main>

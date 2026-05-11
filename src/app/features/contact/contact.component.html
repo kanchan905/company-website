@@ -1,73 +1,128 @@
 <main class="contact-page">
   <section class="hero">
-    <p class="eyebrow">Contact Us</p>
-    <h1>Let us build the right solution for your business goals</h1>
-    <p>
-      Share your requirement and our team will connect with a practical roadmap.
-      You can also use this form as a quick <strong>Get a Quote</strong> request.
-    </p>
-  </section>
+    <div class="hero-content">
+      <span class="offer-tag">
+        <span class="dot"></span> Contact softTech
+      </span>
 
-  <section class="contact-grid">
-    <article class="quote-form-card">
-      <app-section-heading
-        eyebrow="Get A Quote"
-        title="Tell us what you need"
-        description="Fill basic details and our team will share a suitable proposal."
-      />
+      <h1>
+        Tell us your situation —
+        <span class="text-gradient">we’ll reply with a real plan</span>
+      </h1>
 
-      <form class="quote-form" action="#">
-        <label>
-          Full Name
-          <input type="text" placeholder="Enter your name" />
-        </label>
+      <p class="hero-text">
+        Whether you need a Tally licence, AMC, billing, automation, web, or IT support,
+        <strong>write 2–3 lines</strong>. We usually respond the same or next working day with
+        realistic options and cost bands.
+      </p>
 
-        <label>
-          Phone Number
-          <input type="tel" placeholder="Enter phone number" />
-        </label>
-
-        <label>
-          Email Address
-          <input type="email" placeholder="Enter email address" />
-        </label>
-
-        <label>
-          Service / Product
-          <select>
-            <option>Web Development</option>
-            <option>Mobile Apps</option>
-            <option>UI/UX Design</option>
-            <option>SEO Services</option>
-            <option>Tally Solutions</option>
-            <option>CRM System</option>
-            <option>Billing Software</option>
-          </select>
-        </label>
-
-        <label>
-          Your Requirement
-          <textarea rows="4" placeholder="Briefly describe your project..."></textarea>
-        </label>
-
-        <button type="button" class="btn-primary">Submit Quote Request</button>
-      </form>
-    </article>
-
-    <aside class="contact-card">
-      <h2>Direct Contact</h2>
-      <p>Prefer direct conversation? Reach out and our team will assist quickly.</p>
-
-      <div class="contact-points">
-        @for (item of contactPoints; track item.label) {
-          <article>
-            <h3>{{ item.label }}</h3>
-            <p>{{ item.value }}</p>
-          </article>
-        }
+      <div class="hero-actions">
+        <a class="btn-primary" routerLink="/get-quote">Open quick quote form</a>
+        <a class="btn-ghost" href="tel:+918222845550">
+          <span class="play-icon">▶</span> +91 82228 45550
+        </a>
       </div>
 
-      <a class="btn-ghost" routerLink="/">Back to Home</a>
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
+      </div>
+    </div>
+
+    <aside class="hero-panel">
+      <p class="panel-tag">What happens next</p>
+      <h2>Brief → reply → call → written proposal.</h2>
+      <ol class="panel-list">
+        <li><span class="li-num">1</span> Fill the quick form or call us.</li>
+        <li><span class="li-num">2</span> We reply within one working day.</li>
+        <li><span class="li-num">3</span> Short discovery call or office visit.</li>
+        <li><span class="li-num">4</span> Written quote with phased plan.</li>
+      </ol>
+      <a routerLink="/resources/faqs" class="panel-link">Read pricing &amp; SLA FAQs →</a>
     </aside>
+  </section>
+
+  <section class="stats">
+    <div class="stats-inner">
+      @for (item of heroStats; track item.label) {
+        <div class="stat-item">
+          <h3>{{ item.value }}</h3>
+          <p>{{ item.label }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Quick contact"
+      title="Choose the channel that suits you"
+      description="Call, email, WhatsApp, or an office visit — all channels are open."
+      [center]="true"
+    />
+
+    <div class="contact-cards">
+      @for (c of contactCards; track c.title) {
+        <article class="ct-card">
+          <span class="ct-ico" aria-hidden="true">{{ c.icon }}</span>
+          <h3>{{ c.title }}</h3>
+          @for (line of c.lines; track line) {
+            <p>{{ line }}</p>
+          }
+          <a class="ct-link" [href]="c.cta.href" rel="noopener" target="_blank">
+            {{ c.cta.label }} →
+          </a>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section id="quote" class="section">
+    <app-section-heading
+      eyebrow="Get a quote"
+      title="Share your requirement"
+      description="Name, phone, and requirement are required. Optional fields help us quote more accurately."
+      [center]="true"
+    />
+
+    <app-quote-request-panel />
+  </section>
+
+  <section class="section faq-block">
+    <app-section-heading
+      eyebrow="Before you reach out"
+      title="Quick answers"
+      description="For a detailed list, see Resources → FAQs."
+      [center]="true"
+    />
+
+    <div class="faq-list">
+      @for (f of faqs; track f.q) {
+        <details class="faq-item">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      }
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-content">
+      <p class="eyebrow eyebrow-light">We’re ready when you are</p>
+      <h2>Tally licence, IT issue, or a new project — one number.</h2>
+      <p>
+        Do not hesitate — send a short brief or call. If we are not the right fit,
+        we will say so politely — we do not oversell.
+      </p>
+      <div class="cta-actions">
+        <a class="btn-primary btn-on-dark" routerLink="/get-quote">Open quote form</a>
+        <a class="btn-ghost btn-on-dark" href="tel:+918222845550">📞 +91 82228 45550</a>
+      </div>
+    </div>
+    <div class="cta-note">
+      <p><strong>softTech</strong> — Tally 5-Star Certified Partner</p>
+      <p>SCO 32, Ground Floor, HSIIDC Commercial Complex, Kundli 131028</p>
+    </div>
   </section>
 </main>

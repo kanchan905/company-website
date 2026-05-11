@@ -1,0 +1,156 @@
+<div class="quote-request-panel">
+  <div class="quote-wrap">
+    <form class="quote-form" (ngSubmit)="handleSubmit()" #quoteForm="ngForm" novalidate>
+      <div class="qf-row">
+        <label class="qf-field">
+          <span>Full name<i>*</i></span>
+          <input
+            type="text"
+            name="qrpName"
+            required
+            placeholder="Your full name"
+            [ngModel]="form().name"
+            (ngModelChange)="updateField('name', $event)"
+          />
+        </label>
+
+        <label class="qf-field">
+          <span>Phone<i>*</i></span>
+          <input
+            type="tel"
+            name="qrpPhone"
+            required
+            placeholder="+91 ..."
+            [ngModel]="form().phone"
+            (ngModelChange)="updateField('phone', $event)"
+          />
+        </label>
+      </div>
+
+      <div class="qf-row">
+        <label class="qf-field">
+          <span>Email</span>
+          <input
+            type="email"
+            name="qrpEmail"
+            placeholder="Your work email"
+            [ngModel]="form().email"
+            (ngModelChange)="updateField('email', $event)"
+          />
+        </label>
+
+        <label class="qf-field">
+          <span>Company / firm</span>
+          <input
+            type="text"
+            name="qrpCompany"
+            placeholder="(Optional)"
+            [ngModel]="form().company"
+            (ngModelChange)="updateField('company', $event)"
+          />
+        </label>
+      </div>
+
+      <div class="qf-row">
+        <label class="qf-field">
+          <span>Service / product</span>
+          <select
+            name="qrpService"
+            [ngModel]="form().service"
+            (ngModelChange)="updateField('service', $event)"
+          >
+            <option value="">Select an option</option>
+            @for (s of services; track s) {
+              <option [value]="s">{{ s }}</option>
+            }
+          </select>
+        </label>
+
+        <label class="qf-field">
+          <span>Budget range</span>
+          <select
+            name="qrpBudget"
+            [ngModel]="form().budget"
+            (ngModelChange)="updateField('budget', $event)"
+          >
+            <option value="">Select an option</option>
+            @for (b of budgets; track b) {
+              <option [value]="b">{{ b }}</option>
+            }
+          </select>
+        </label>
+      </div>
+
+      <label class="qf-field full">
+        <span>Your requirement<i>*</i></span>
+        <textarea
+          name="qrpMessage"
+          rows="5"
+          required
+          placeholder="Current setup, top 3 pain points, and target timeline — a short brief is enough."
+          [ngModel]="form().message"
+          (ngModelChange)="updateField('message', $event)"
+        ></textarea>
+      </label>
+
+      <p class="qf-note">
+        After you submit, we show a summary preview — then you can send it directly via WhatsApp or email.
+      </p>
+
+      <div class="qf-actions">
+        <button type="submit" class="btn-primary" [disabled]="quoteForm.invalid">
+          Preview &amp; send →
+        </button>
+        <button type="button" class="btn-ghost" (click)="resetForm()">Reset</button>
+      </div>
+
+      @if (submitted()) {
+        <div class="qf-summary" role="status" aria-live="polite">
+          <h3>Summary ready</h3>
+          <p>Choose your preferred channel below — your details will be pre-filled for you.</p>
+          <div class="qf-summary-actions">
+            <a class="btn-primary btn-on-light" [href]="whatsappLink" target="_blank" rel="noopener">
+              📲 Send on WhatsApp
+            </a>
+            <a class="btn-ghost" [href]="mailtoLink">
+              ✉️ Send as email
+            </a>
+          </div>
+        </div>
+      }
+    </form>
+
+    <aside class="quote-side">
+      <article class="qs-card">
+        <p class="qs-tag">Office hours</p>
+        <ul>
+          @for (h of hours; track h.day) {
+            <li><strong>{{ h.day }}:</strong> {{ h.time }}</li>
+          }
+        </ul>
+      </article>
+
+      <article class="qs-card map-card">
+        <p class="qs-tag">Find us</p>
+        <strong>SCO 32, Ground Floor</strong>
+        <p>HSIIDC Commercial Complex<br />Kundli 131028, Haryana</p>
+        <a
+          class="qs-link"
+          href="https://maps.google.com/?q=HSIIDC+Commercial+Complex+Kundli"
+          target="_blank"
+          rel="noopener"
+        >
+          Open in Google Maps →
+        </a>
+      </article>
+
+      <article class="qs-card emergency">
+        <p class="qs-tag">Urgent / Tally down</p>
+        <p>
+          AMC clients: priority queue — typically acknowledged within 2 hours during working day.
+        </p>
+        <a class="qs-link" href="tel:+918222845550">📞 Call now: +91 82228 45550</a>
+      </article>
+    </aside>
+  </div>
+</div>

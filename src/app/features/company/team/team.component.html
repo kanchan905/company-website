@@ -1,53 +1,308 @@
-<main class="company-page">
+<main class="team-page">
   <section class="hero">
+    <div class="hero-content">
+      <span class="offer-tag">
+        <span class="dot"></span> Our Team
+      </span>
+
+      <h1>
+        Meet the people behind
+        <span class="text-gradient">250+ Tally implementations</span>
+      </h1>
+
+      <p class="hero-text">
+        Fifteen expert team members — eight Tally-certified — multidisciplinary and grounded in Haryana’s business culture.
+        We do not only install software;
+        <strong>we understand your business processes</strong>.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" routerLink="/company/careers">Join Our Team</a>
+        <a class="btn-ghost" routerLink="/contact">
+          <span class="play-icon">▶</span> Talk to Team
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
+      </div>
+    </div>
+
+    <!-- Right side team snapshot -->
+    <aside class="team-snapshot">
+      <div class="snapshot-ribbon">
+        <span>👥</span>
+        <span>Our Team at a Glance</span>
+      </div>
+
+      <div class="snapshot-body">
+        <div class="avatars-stack">
+          <span class="stack-avatar a1">S</span>
+          <span class="stack-avatar a2">A</span>
+          <span class="stack-avatar a3">P</span>
+          <span class="stack-avatar a4">R</span>
+          <span class="stack-avatar a5">N</span>
+          <span class="stack-avatar a-more">+10</span>
+        </div>
+
+        <h2>15 experts.<br>One trusted partner.</h2>
+        <p class="snapshot-line">
+          Tally consultants, GST experts, support engineers, and trainers — all under one roof.
+        </p>
+
+        <div class="snapshot-meta">
+          <div class="sm-row">
+            <span class="sm-icon">🏅</span>
+            <div>
+              <small>Certifications</small>
+              <strong>8 Tally Certified Pros</strong>
+            </div>
+          </div>
+          <div class="sm-row">
+            <span class="sm-icon">⚡</span>
+            <div>
+              <small>Avg. Response</small>
+              <strong>Under 2 Hours</strong>
+            </div>
+          </div>
+          <div class="sm-row">
+            <span class="sm-icon">📍</span>
+            <div>
+              <small>Coverage Area</small>
+              <strong>Sonipat • Panipat • Delhi NCR</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+
+  <section class="stats">
+    <div class="stats-inner">
+      @for (stat of heroStats; track stat.label) {
+        <div class="stat-item">
+          <h3>{{ stat.value }}</h3>
+          <p>{{ stat.label }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+
+  <section class="section leadership">
     <app-section-heading
-      eyebrow="Our Team"
-      title="Experts who understand both software and business operations"
-      description="We combine consulting, implementation, training, and support to ensure teams achieve real outcomes."
+      eyebrow="Leadership"
+      title="Meet our founder"
+      description="Shaping softTech’s vision and values for over a decade."
+      [center]="true"
     />
 
-    <div class="hero-stats">
-      @for (item of metrics; track item.label) {
-        <article>
-          <h3>{{ item.value }}</h3>
-          <p>{{ item.label }}</p>
+    <article class="founder-card">
+      <div class="founder-photo">
+        <div class="photo-bg"></div>
+        <div class="photo-initial">{{ leadership.initial }}</div>
+        <span class="photo-badge">
+          <span aria-hidden="true">🏅</span>
+          Tally 5-Star Certified
+        </span>
+        <span class="photo-ring"></span>
+      </div>
+
+      <div class="founder-info">
+        <p class="founder-tagline">{{ leadership.tagline }}</p>
+        <h3>{{ leadership.name }}</h3>
+        <span class="founder-role">{{ leadership.role }}</span>
+
+        <p class="founder-bio">{{ leadership.bio }}</p>
+
+        <blockquote class="founder-quote-mini">
+          <span class="q-mark" aria-hidden="true">"</span>
+          {{ leadership.quote }}
+        </blockquote>
+
+        <div class="founder-expertise">
+          @for (skill of leadership.expertise; track skill) {
+            <span class="skill-pill">{{ skill }}</span>
+          }
+        </div>
+
+        <div class="founder-stats">
+          @for (s of leadership.stats; track s.label) {
+            <div>
+              <strong>{{ s.value }}</strong>
+              <small>{{ s.label }}</small>
+            </div>
+          }
+        </div>
+
+        <div class="founder-contact">
+          <a [href]="leadership.contact.phoneHref" class="contact-pill">
+            <span>📞</span>
+            <span>{{ leadership.contact.phone }}</span>
+          </a>
+          <a [href]="leadership.contact.emailHref" class="contact-pill">
+            <span>✉️</span>
+            <span>{{ leadership.contact.email }}</span>
+          </a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Core Team"
+      title="Experts who handle your business daily"
+      description="From implementation through support — each specialist brings deep expertise in their discipline."
+      [center]="true"
+    />
+
+    <div class="team-grid">
+      @for (member of teamMembers; track member.name) {
+        <article class="team-card">
+          <!-- Decorative top band -->
+          <div class="card-band">
+            <span class="band-dot"></span>
+            <span class="band-dot"></span>
+            <span class="band-dot"></span>
+          </div>
+
+          <!-- Avatar overlapping band -->
+          <div class="member-avatar-wrap">
+            <div class="member-avatar" [class]="member.colorClass">
+              {{ member.initial }}
+            </div>
+          </div>
+
+          <div class="member-body">
+            <h3>{{ member.name }}</h3>
+            <p class="member-role">{{ member.role }}</p>
+
+            @if (member.certified) {
+              <span class="cert-pill">
+                <span aria-hidden="true">🏅</span>
+                Tally Certified
+              </span>
+            }
+
+            <p class="member-summary">{{ member.summary }}</p>
+
+            <div class="member-expertise">
+              @for (skill of member.expertise; track skill) {
+                <span class="exp-pill">{{ skill }}</span>
+              }
+            </div>
+
+            <!-- Contact icons row -->
+            <div class="member-contact">
+              <a class="contact-ico"
+                 href="mailto:tyagi.sts@gmail.com"
+                 [attr.aria-label]="'Email ' + member.name">
+                <span aria-hidden="true">✉</span>
+              </a>
+              <a class="contact-ico"
+                 href="tel:+918222845550"
+                 [attr.aria-label]="'Call ' + member.name">
+                <span aria-hidden="true">📞</span>
+              </a>
+              <a class="contact-ico"
+                 href="#"
+                 [attr.aria-label]="member.name + ' on LinkedIn'">
+                <span aria-hidden="true">in</span>
+              </a>
+            </div>
+          </div>
         </article>
       }
     </div>
   </section>
 
-  <section class="team-grid">
-    @for (member of members; track member.name) {
-      <article class="team-card">
-        <div class="avatar">{{ member.name[0] }}</div>
-        <h3>{{ member.name }}</h3>
-        <p class="role">{{ member.role }}</p>
-        <p class="summary">{{ member.summary }}</p>
-      </article>
-    }
-  </section>
 
-  <app-media-highlight
-    imageSrc="images/logo.jpeg"
-    imageAlt="Team campaign sample visual"
-    eyebrow="Team Culture"
-    title="Showcase your team photo or office environment here"
-    description="Is block me aap team group photo, workspace image, ya event image add kar sakte ho."
-    pointOne="Human touch add hota hai"
-    pointTwo="Brand authenticity improve hoti hai"
-    pointThree="Trust conversion better hota hai"
-    ctaText="Update Team Visual"
-    ctaLink="/company/careers"
-    [reverse]="true"
-  />
+  <section class="section section-soft">
+    <app-section-heading
+      eyebrow="Our Departments"
+      title="Specialized teams for every business need"
+      description="4 focused departments work together to deliver complete Tally + business technology service."
+      [center]="true"
+    />
 
-  <section class="culture">
-    <h2>How we work</h2>
-    <div class="culture-points">
-      @for (item of strengths; track item) {
-        <article>{{ item }}</article>
+    <div class="dept-grid">
+      @for (dept of departments; track dept.name) {
+        <article class="dept-card">
+          <div class="dept-top">
+            <span class="dept-icon">{{ dept.icon }}</span>
+            <span class="dept-size">
+              <strong>{{ dept.teamSize }}</strong>
+              <small>members</small>
+            </span>
+          </div>
+
+          <h3>{{ dept.name }}</h3>
+          <p>{{ dept.description }}</p>
+
+          <div class="dept-lead">
+            <span>Led by</span>
+            <strong>{{ dept.lead }}</strong>
+          </div>
+        </article>
       }
     </div>
-    <a routerLink="/company/careers">Join Our Team</a>
+  </section>
+
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Our Culture"
+      title="How we work together"
+      description="Hiring great people is not enough — how we collaborate needs to be clear too."
+      [center]="true"
+    />
+
+    <div class="grid four-col">
+      @for (value of cultureValues; track value.title) {
+        <app-feature-card
+          [icon]="value.icon"
+          [title]="value.title"
+          [description]="value.description"
+          [compact]="true"
+        />
+      }
+    </div>
+  </section>
+
+
+  <section class="join-section">
+    <div class="join-inner">
+      <div class="join-content">
+        <p class="eyebrow eyebrow-light">We're Hiring</p>
+        <h2>Want to be part of our journey?</h2>
+        <p>
+          Whether you are Tally-certified or learning GST fresh — if you value genuine teamwork and growing with modern tech,
+          we would love to talk.
+        </p>
+
+        <div class="perks-grid">
+          @for (perk of careerPerks; track perk.label) {
+            <span class="perk-pill">
+              <span class="perk-icon">{{ perk.icon }}</span>
+              <span>{{ perk.label }}</span>
+            </span>
+          }
+        </div>
+
+        <div class="join-actions">
+          <a class="btn-primary btn-on-dark" routerLink="/company/careers">
+            View Open Positions
+          </a>
+          <a class="btn-ghost btn-on-dark" href="mailto:tyagi.sts@gmail.com">
+            ✉️ Send Your CV
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 </main>

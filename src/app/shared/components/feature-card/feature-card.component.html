@@ -1,9 +1,15 @@
 <article class="feature-card" [class.compact]="compact()">
-  <span class="icon" aria-hidden="true">{{ icon() }}</span>
+  <span class="icon" aria-hidden="true">
+    {{ icon() }}
+    <span class="icon-dot"></span>
+  </span>
   <h3>{{ title() }}</h3>
   <p>{{ description() }}</p>
 
   @if (linkText()) {
-    <a [routerLink]="link()">{{ linkText() }} <span aria-hidden="true">→</span></a>
+    <a [routerLink]="link()">
+      <span>{{ linkText() }}</span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </a>
   }
 </article>

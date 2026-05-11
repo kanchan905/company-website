@@ -1,38 +1,209 @@
-<main class="product-page">
+<main class="tally-page">
   <section class="hero">
-    <p class="eyebrow">Tally Solutions</p>
-    <h1>Tally-powered accounting workflows designed for business speed and control</h1>
-    <p>
-      We help businesses implement, optimize, and scale Tally usage with better process setup,
-      cleaner reporting, and practical training for teams.
-    </p>
-    <a routerLink="/contact" class="btn-primary">Book Tally Consultation</a>
+    <div class="hero-content">
+      <span class="offer-tag">
+        <span class="dot"></span> Tally Solutions
+      </span>
+
+      <h1>
+        <span class="text-gradient">TallyPrime</span> for SMBs — sale, setup, support
+      </h1>
+
+      <p class="hero-text">
+        <strong>softTech</strong> is a Tally 5-Star Certified Partner serving SMBs across
+        Kundli, Sonipat &amp; NCR — <strong>genuine licenses</strong>, structured implementation,
+        ongoing AMC, cloud access, and TDL customisation — all from one team.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" routerLink="/get-quote" [queryParams]="{ service: 'tally' }">Get a Tally quote</a>
+        <a class="btn-ghost" routerLink="/solutions/erp-solutions">
+          <span class="play-icon">▶</span> ERP solutions
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
+      </div>
+    </div>
+
+    <aside class="tally-mock">
+      <div class="tm-window">
+        <div class="tm-bar">
+          <span>TallyPrime</span>
+          <span class="tm-flag">★ 5-Star Partner</span>
+        </div>
+
+        <div class="tm-grid">
+          <button class="tm-tile">
+            <span class="tm-ico">🧾</span>
+            <span>Vouchers</span>
+          </button>
+          <button class="tm-tile yellow">
+            <span class="tm-ico">📊</span>
+            <span>Reports</span>
+          </button>
+          <button class="tm-tile">
+            <span class="tm-ico">📦</span>
+            <span>Inventory</span>
+          </button>
+          <button class="tm-tile">
+            <span class="tm-ico">👥</span>
+            <span>Payroll</span>
+          </button>
+          <button class="tm-tile">
+            <span class="tm-ico">🏦</span>
+            <span>Banking</span>
+          </button>
+          <button class="tm-tile">
+            <span class="tm-ico">🔐</span>
+            <span>Security</span>
+          </button>
+        </div>
+
+        <div class="tm-foot">
+          <span class="tm-foot-tag">Quick info</span>
+          <strong>Today: 12 sales · 4 receipts · GSTR ready</strong>
+        </div>
+      </div>
+    </aside>
   </section>
 
-  <section class="section">
-    <app-section-heading
-      eyebrow="Core Benefits"
-      title="Make Tally work as a business growth system, not just accounting software"
-      description="Implementation approach focused on accuracy, speed, and daily operational clarity."
-      [center]="true"
-    />
-    <div class="grid">
-      @for (item of productHighlights; track item.title) {
-        <app-feature-card [icon]="item.icon" [title]="item.title" [description]="item.description" />
+  <section class="stats">
+    <div class="stats-inner">
+      @for (item of heroStats; track item.label) {
+        <div class="stat-item">
+          <h3>{{ item.value }}</h3>
+          <p>{{ item.label }}</p>
+        </div>
       }
     </div>
   </section>
 
-  <app-media-highlight
-    imageSrc="images/logo.jpeg"
-    imageAlt="Tally product sample visual"
-    eyebrow="Product Visual"
-    title="Place Tally dashboard or workflow screenshot in this section"
-    description="Yaha aap Tally reports, sales summary, outstanding reminder screen, ya campaign poster show kar sakte ho."
-    pointOne="Show clarity in reports"
-    pointTwo="Highlight speed in billing"
-    pointThree="Build product trust instantly"
-    ctaText="Request Product Demo"
-    ctaLink="/contact"
-  />
+  <section class="section">
+    <app-section-heading
+      eyebrow="Editions"
+      title="Choose the right TallyPrime edition"
+      description="Silver, Gold, or Cloud — choose by business size and access pattern. We give straightforward recommendations."
+      [center]="true"
+    />
+
+    <div class="edition-grid">
+      @for (e of editions; track e.name) {
+        <article class="edition-card" [class.highlight]="e.highlight">
+          <div class="ed-head">
+            <span class="ed-icon">{{ e.icon }}</span>
+            <span class="ed-tag">{{ e.tag }}</span>
+          </div>
+          <h3>{{ e.name }}</h3>
+          <p>{{ e.summary }}</p>
+          <ul>
+            @for (b of e.bullets; track b) { <li>{{ b }}</li> }
+          </ul>
+          <a [routerLink]="e.ctaLink" class="ed-cta">{{ e.cta }} →</a>
+        </article>
+      }
+    </div>
+    <p class="footnote">* Subject to Tally’s licensing terms; statutory updates require active TSS.</p>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Capabilities"
+      title="What TallyPrime does for your business"
+      description="Accounting + GST + inventory + payroll + banking — one product, deeply tested for Indian SMBs."
+      [center]="true"
+    />
+
+    <div class="grid three-col">
+      @for (c of capabilities; track c.title) {
+        <app-feature-card
+          [icon]="c.icon"
+          [title]="c.title"
+          [description]="c.description"
+          [linkText]="c.linkText"
+          [link]="c.link"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <app-section-heading
+      eyebrow="Our services"
+      title="Beyond licensing — full Tally lifecycle"
+      description="Sale → setup → training → support → customisation. We act as your extended IT partner around Tally."
+      [center]="true"
+    />
+
+    <div class="stack-grid">
+      @for (s of services; track s.name) {
+        <article class="stack-card">
+          <span class="stack-icon" aria-hidden="true">{{ s.icon }}</span>
+          <div>
+            <h3>{{ s.name }}</h3>
+            <p>{{ s.detail }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Process"
+      title="How we onboard new clients"
+      description="Predictable steps — what happens, when, and who owns it — all documented."
+      [center]="true"
+    />
+
+    <div class="steps-row">
+      @for (p of process; track p.step) {
+        <article class="step-chip">
+          <span class="step-num">{{ p.step }}</span>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.detail }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section faq-block">
+    <app-section-heading
+      eyebrow="FAQ"
+      title="Common Tally questions"
+      description="Need more detail? Visit our Kundli office or book a quick call — straight, practical guidance."
+      [center]="true"
+    />
+
+    <div class="faq-list">
+      @for (f of faqs; track f.q) {
+        <details class="faq-item">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      }
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-content">
+      <p class="eyebrow eyebrow-light">Next step</p>
+      <h2>Get genuine TallyPrime &amp; structured support</h2>
+      <p>
+        Licenses, AMC, training, or customisation — whatever you need, one call covers it.
+        Genuine registration in the owner’s name, transparent invoicing, and written scope every time.
+      </p>
+      <div class="cta-actions">
+        <a class="btn-primary btn-on-dark" routerLink="/contact">Talk to a Tally expert</a>
+        <a class="btn-ghost btn-on-dark" href="tel:+918222845550">📞 +91 82228 45550</a>
+      </div>
+    </div>
+    <div class="cta-note">
+      <p><strong>softTech</strong> — Tally 5-Star Certified Partner</p>
+      <p>SCO 32, Ground Floor, HSIIDC Commercial Complex, Kundli 131028</p>
+    </div>
+  </section>
 </main>

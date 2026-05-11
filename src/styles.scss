@@ -19,6 +19,12 @@
   --orange: #F58A1F;
   --red-orange: #E43D30;
 
+  /* Tally-inspired accent yellow */
+  --tally-yellow: #FFCD00;
+  --tally-yellow-dark: #F5B800;
+  --tally-yellow-light: #FFE066;
+  --tally-amber: #F59E0B;
+
   /* =========================
      NEUTRAL COLORS
   ========================== */
@@ -56,6 +62,21 @@
     135deg,
     #F58A1F,
     #D61A1A
+  );
+
+  /* Tally-inspired Yellow Gradients */
+  --yellow-gradient: linear-gradient(
+    135deg,
+    #FFE066,
+    #FFCD00,
+    #F5B800
+  );
+
+  --yellow-orange-gradient: linear-gradient(
+    135deg,
+    #FFCD00,
+    #F59E0B,
+    #F58A1F
   );
 
   /* Premium Dark Gradient */

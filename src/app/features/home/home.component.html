@@ -1,18 +1,37 @@
 <main class="home">
+  <!-- ===================== HERO ===================== -->
   <section class="hero">
     <div class="hero-content">
-      <p class="eyebrow">Tally Certified Partner</p>
-      <h1>Modern Accounting & Business Software Solutions for Growing Teams</h1>
+      <span class="offer-tag">
+        <span class="dot"></span> Today's Offer • TallyPrime 7.0 is Live
+      </span>
+
+      <h1>
+        Automated Accounting with
+        <span class="text-gradient">Smart Bank Statements</span>
+      </h1>
+
       <p class="hero-text">
-        We help businesses move from manual accounting to smart, connected workflows
-        with TallyPrime, mobile reporting, automation, and reliable support.
+        Tally Certified Partner in Sonipat, Panipat & Haryana. We help growing businesses
+        move to modern, connected accounting with <strong>TallyPrime 7.0</strong>,
+        mobile reporting, automation and reliable onsite support.
       </p>
+
       <div class="hero-actions">
-        <a class="btn-primary" routerLink="/contact">Book Free Consultation</a>
-        <a class="btn-ghost" routerLink="/products/tally-solutions">Explore Products</a>
+        <a class="btn-primary" routerLink="/contact">Buy TallyPrime</a>
+        <a class="btn-ghost" routerLink="/products/tally-solutions">
+          <span class="play-icon">▶</span> Watch Demo
+        </a>
       </div>
+
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
+      </div>
+
       <div class="hero-highlights">
-        @for (item of highlights; track item.label) {
+        @for (item of heroHighlights; track item.label) {
           <article class="highlight-card">
             <h3>{{ item.value }}</h3>
             <p>{{ item.label }}</p>
@@ -21,73 +40,316 @@
       </div>
     </div>
 
-    <aside class="hero-panel">
-      <p class="panel-tag">What You Get</p>
-      <h2>One place for implementation, training, and after-sales support</h2>
-      <ul>
-        <li>GST-ready setup and data migration</li>
-        <li>Owner-friendly dashboards and alerts</li>
-        <li>Onsite + remote support in your business hours</li>
-      </ul>
-      <a routerLink="/contact" class="panel-link">Talk to Expert →</a>
+    <aside class="hero-showcase">
+      <div class="offer-card">
+        <!-- Top ribbon -->
+        <div class="ribbon">
+          <span class="ribbon-icon">🔥</span>
+          <span>Limited Time Offer</span>
+          <span class="ribbon-days">3 Days Left</span>
+        </div>
+
+        <!-- Brand header -->
+        <div class="offer-header">
+          <div class="brand-mark">T</div>
+          <div class="brand-meta">
+            <strong>TallyPrime 7.0</strong>
+            <small>Silver Edition • Single User</small>
+          </div>
+          <span class="rating-mini">
+            <span class="stars">★★★★★</span>
+            <small>4.9 (250+)</small>
+          </span>
+        </div>
+
+        <!-- Pricing block -->
+        <div class="pricing-block">
+          <div class="price-left">
+            <span class="discount-tag">SAVE 20%</span>
+            <span class="old-price">₹ 22,500</span>
+          </div>
+          <div class="current-price">
+            <small class="rupee">₹</small>
+            <strong>18,000</strong>
+            <span class="per">/ year</span>
+          </div>
+          <p class="price-note">+ GST • Free Installation & Training</p>
+        </div>
+
+        <!-- Features -->
+        <ul class="offer-features">
+          <li>
+            <span class="check">✓</span>
+            <span>Lifetime License + 1 Year TSS</span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span>Free Setup & Data Migration</span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span>Onsite + Remote Support</span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span>GST + E-Invoice + E-Way Bill</span>
+          </li>
+        </ul>
+
+        <!-- CTAs -->
+        <div class="offer-actions">
+          <a class="offer-buy" routerLink="/contact">
+            Buy Now <span aria-hidden="true">→</span>
+          </a>
+          <a class="offer-call" href="tel:+918222845550" aria-label="Call us">
+            <span class="call-icon">📞</span>
+            <span class="call-meta">
+              <small>Call us</small>
+              <strong>82228 45550</strong>
+            </span>
+          </a>
+        </div>
+
+        <!-- Footer trust strip -->
+        <div class="offer-trust">
+          <span>🏅 5-Star Certified Partner</span>
+          <span class="dot-sep"></span>
+          <span>🔒 100% Genuine License</span>
+        </div>
+      </div>
     </aside>
   </section>
 
-  <section class="trusted-strip">
-    <p>Trusted by retailers, manufacturers, distributors, and service companies in Haryana.</p>
+  <!-- ===================== TRUST STRIP ===================== -->
+  <section class="trust-strip">
+    <div class="trust-inner">
+      <span class="trust-pill">⭐ Tally 5-Star Partner</span>
+      <span class="trust-pill">🛡️ Quick Heal Authorised</span>
+      <span class="trust-pill">🔗 TSplus Reseller</span>
+      <span class="trust-pill">📱 Biz Analyst Partner</span>
+      <span class="trust-pill">🛟 LIC Advisor</span>
+      <span class="trust-pill">🎓 Tally Education Centre</span>
+    </div>
   </section>
 
-  <section class="image-showcase">
-    <article class="image-card">
-      <img src="images/logo.jpeg" alt="Sample business campaign visual" />
-    </article>
-
-    <article class="image-content">
-      <p class="eyebrow">Campaign Highlight</p>
-      <h2>Easily track expense data with actionable smart reports</h2>
-      <p>
-        Is block me aap kisi bhi campaign/poster image ko show kar sakte ho. Bas apni image
-        `public/images` folder me add karo and `img src` update kar do.
-      </p>
-      <ul>
-        <li>Check reports and make data-driven decisions</li>
-        <li>Automate outstanding reminders</li>
-        <li>Improve team productivity and follow-ups</li>
-      </ul>
-      <a class="btn-primary" routerLink="/contact">Use This Section</a>
-    </article>
-  </section>
-
+  <!-- ===================== TALLY PRIME 7.0 FEATURES ===================== -->
   <section class="section">
     <app-section-heading
-      eyebrow="Our Core Services"
-      title="Designed for practical business outcomes"
-      description="Use these services individually or as a full-stack growth package depending on your current stage."
+      eyebrow="TallyPrime 7.0 • New Features"
+      title="Designed to elevate your business operations"
+      description="TallyPrime 7.0 brings exciting features that streamline accounting, payments, banking and compliance — all in one place."
       [center]="true"
     />
 
     <div class="grid four-col">
-      @for (card of serviceCards; track card.title) {
+      @for (item of primeFeatures; track item.title) {
+        <article class="prime-feature-card">
+          <span class="pf-icon" aria-hidden="true">
+            {{ item.icon }}
+            <span class="pf-icon-dot"></span>
+          </span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- ===================== ONE-STOP SOLUTION ===================== -->
+  <section class="section showcase">
+    <div class="showcase-media">
+      <div class="media-frame">
+        <img src="images/man.png" alt="TallyPrime dashboard preview" />
+      </div>
+      <div class="floating-stat">
+        <span class="fs-num">2500+</span>
+        <span class="fs-label">Ledgers managed daily</span>
+      </div>
+      <div class="floating-stat fs-secondary">
+        <span class="fs-num">99.9%</span>
+        <span class="fs-label">Data accuracy</span>
+      </div>
+    </div>
+
+    <div class="showcase-content">
+      <p class="eyebrow">Why TallyPrime</p>
+      <h2>
+        TallyPrime — your <span class="text-gradient">one-stop solution</span>
+        for all finance activities
+      </h2>
+      <p class="lead">
+        From accounting and invoicing to inventory and taxation — TallyPrime simplifies
+        every financial process and helps you stay organised, compliant and in control.
+      </p>
+
+      <ul class="check-list">
+        @for (point of oneStopPoints; track point) {
+          <li>
+            <span class="check">✓</span>
+            <span>{{ point }}</span>
+          </li>
+        }
+      </ul>
+
+      <div class="showcase-actions">
+        <a class="btn-primary" routerLink="/contact">Get Free Demo</a>
+        <a class="btn-link" routerLink="/products/tally-solutions">
+          View Plans & Pricing →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TALLY ON MOBILE ===================== -->
+  <section class="mobile-section">
+    <div class="mobile-inner">
+      <div class="mobile-content">
+        <p class="eyebrow eyebrow-light">📱 Tally On Mobile • Biz Analyst</p>
+        <h2>Your finances, <span class="text-gradient-light">anywhere</span>.</h2>
+        <p class="mobile-lead">
+          Smart decisions = business growth. Access Tally data anytime, anywhere — even offline.
+          Trusted by <strong>150K+ businesses</strong> across India.
+        </p>
+
+        <ul class="check-list check-list-light">
+          @for (feature of mobileFeatures; track feature) {
+            <li>
+              <span class="check">✓</span>
+              <span>{{ feature }}</span>
+            </li>
+          }
+        </ul>
+
+        <div class="store-buttons">
+          <a class="store-btn" href="https://tallymobile.app/" target="_blank" rel="noopener">
+            <span class="store-icon">▶</span>
+            <span class="store-meta">
+              <small>GET IT ON</small>
+              <strong>Google Play</strong>
+            </span>
+          </a>
+          <a class="store-btn" href="https://tallymobile.app/" target="_blank" rel="noopener">
+            <span class="store-icon"></span>
+            <span class="store-meta">
+              <small>Download on the</small>
+              <strong>App Store</strong>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mobile-visual">
+        <div class="phone-mock">
+          <div class="phone-screen">
+            <div class="screen-header">
+              <span class="bar"></span>
+              <span class="bar small"></span>
+            </div>
+            <div class="screen-stat">
+              <small>Today's Sales</small>
+              <strong>₹ 2,84,500</strong>
+            </div>
+            <div class="screen-list">
+              <div class="row">
+                <span>Top Customer</span>
+                <b>+22%</b>
+              </div>
+              <div class="row">
+                <span>Outstanding</span>
+                <b class="warn">₹ 1.2L</b>
+              </div>
+              <div class="row">
+                <span>Stock Items</span>
+                <b>1,420</b>
+              </div>
+              <div class="row">
+                <span>Cash in Hand</span>
+                <b>₹ 4.6L</b>
+              </div>
+            </div>
+            <div class="screen-chart">
+              <span style="height: 30%"></span>
+              <span style="height: 55%"></span>
+              <span style="height: 42%"></span>
+              <span style="height: 70%"></span>
+              <span style="height: 60%"></span>
+              <span style="height: 85%"></span>
+              <span style="height: 72%"></span>
+            </div>
+          </div>
+        </div>
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PRODUCTS ===================== -->
+  <section class="section">
+    <app-section-heading
+      eyebrow="Our Products"
+      title="Trusted software for modern businesses"
+      description="From accounting to security, mobility to insurance — everything your business needs, under one roof."
+      [center]="true"
+    />
+
+    <div class="grid three-col">
+      @for (product of products; track product.title) {
         <app-feature-card
-          [icon]="card.icon"
-          [title]="card.title"
-          [description]="card.description"
-          [linkText]="card.linkText"
-          [link]="card.link"
+          [icon]="product.icon"
+          [title]="product.title"
+          [description]="product.description"
+          [linkText]="product.linkText"
+          [link]="product.link"
         />
       }
     </div>
   </section>
 
+  <!-- ===================== SERVICES ===================== -->
   <section class="section section-soft">
     <app-section-heading
-      eyebrow="Why Businesses Choose Us"
-      title="A modern consulting approach with local support strength"
-      description="We combine implementation quality, process clarity, and measurable improvements in daily operations."
+      eyebrow="Our Services"
+      title="More than software — a complete business partner"
+      description="Implementation, training, software services and on-demand support to keep your business running smoothly."
       [center]="true"
     />
 
     <div class="grid three-col">
+      @for (service of services; track service.title) {
+        <app-feature-card
+          [icon]="service.icon"
+          [title]="service.title"
+          [description]="service.description"
+          [linkText]="service.linkText"
+          [link]="service.link"
+        />
+      }
+    </div>
+  </section>
+
+  <!-- ===================== STATS COUNTER ===================== -->
+  <section class="stats">
+    <div class="stats-inner">
+      @for (stat of stats; track stat.label) {
+        <div class="stat-item">
+          <h3>{{ stat.value }}</h3>
+          <p>{{ stat.label }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- ===================== WHY CHOOSE US ===================== -->
+  <section class="section">
+    <app-section-heading
+      eyebrow="Why Choose softTech"
+      title="A modern partner with local support strength"
+      description="We combine certified expertise, structured implementation and measurable outcomes for your business."
+      [center]="true"
+    />
+
+    <div class="grid four-col">
       @for (item of whyUsCards; track item.title) {
         <app-feature-card
           [icon]="item.icon"
@@ -99,28 +361,58 @@
     </div>
   </section>
 
+  <!-- ===================== TESTIMONIALS ===================== -->
   <section class="section testimonials">
     <app-section-heading
-      eyebrow="Client Voice"
+      eyebrow="Client Stories"
       title="Results that reflect in business numbers"
-      description="A few examples of what clients typically experience after optimization."
+      description="A few examples of what our customers experience after partnering with us."
       [center]="true"
     />
 
-    <div class="grid two-col">
+    <div class="grid three-col">
       @for (review of testimonials; track review.name) {
         <article class="testimonial-card">
-          <p>"{{ review.quote }}"</p>
-          <h3>{{ review.name }}</h3>
-          <span>{{ review.role }}</span>
+          <span class="quote-mark">"</span>
+          <p>{{ review.quote }}</p>
+          <div class="t-author">
+            <span class="t-avatar">{{ review.name.charAt(0) }}</span>
+            <div>
+              <h3>{{ review.name }}</h3>
+              <span>{{ review.role }}</span>
+            </div>
+          </div>
         </article>
       }
     </div>
   </section>
 
+  <!-- ===================== CTA + CONTACT ===================== -->
   <section class="cta">
-    <h2>Ready to modernize your accounting workflow?</h2>
-    <p>Start with a consultation call and get a practical roadmap for your business.</p>
-    <a class="btn-primary" routerLink="/contact">Get Started Today</a>
+    <div class="cta-content">
+      <p class="eyebrow eyebrow-light">Get in Touch</p>
+      <h2>Ready to transform your business with Tally?</h2>
+      <p>
+        Contact us today for a free consultation. Our experts will help you pick the
+        right plan, configure your data, and get you live — without disrupting your operations.
+      </p>
+
+      <div class="cta-actions">
+        <a class="btn-primary btn-on-dark" routerLink="/contact">Book Free Consultation</a>
+        <a class="btn-ghost btn-on-dark" href="tel:+918222845550">📞 Call +91 82228 45550</a>
+      </div>
+    </div>
+
+    <div class="cta-info">
+      @for (info of contactInfo; track info.label) {
+        <div class="info-row">
+          <span class="info-icon">{{ info.icon }}</span>
+          <div>
+            <small>{{ info.label }}</small>
+            <strong>{{ info.value }}</strong>
+          </div>
+        </div>
+      }
+    </div>
   </section>
 </main>

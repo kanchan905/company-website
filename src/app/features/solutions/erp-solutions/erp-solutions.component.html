@@ -1,22 +1,73 @@
-<main class="solution-page">
+<main class="erp-page">
   <section class="hero">
-    <div class="hero-copy">
-      <p class="eyebrow">ERP Solutions</p>
-      <h1>Unify finance, inventory, and operations with one intelligent ERP backbone</h1>
-      <p>
-        We design ERP systems for growing businesses so teams can move faster with clean data,
-        predictable workflows, and real-time visibility.
+    <div class="hero-content">
+      <span class="offer-tag">
+        <span class="dot"></span> ERP Solutions
+      </span>
+
+      <h1>
+        Finance, inventory &amp; operations —
+        <span class="text-gradient">one intelligent backbone</span>
+      </h1>
+
+      <p class="hero-text">
+        For growing SMBs we shape <strong>TallyPrime</strong> as an ERP backbone —
+        clean masters, linked workflows, GST-ready compliance, and owner-friendly dashboards.
+        Moving off spreadsheets into <strong>one system</strong> gives your team clearer visibility.
       </p>
+
       <div class="hero-actions">
-        <a routerLink="/contact" class="btn-primary">Book ERP Assessment</a>
-        <a routerLink="/company/clients" class="btn-secondary">See Client Outcomes</a>
+        <a class="btn-primary" routerLink="/contact">Book ERP Assessment</a>
+        <a class="btn-ghost" routerLink="/company/clients">
+          <span class="play-icon">▶</span> Client outcomes
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
       </div>
     </div>
-    <div class="hero-stats">
-      @for (item of stats; track item.label) {
-        <article>
+
+    <aside class="hero-panel">
+      <p class="panel-tag">ERP at a glance</p>
+      <h2>Modular start. Scale when the business grows.</h2>
+      <ul class="panel-list">
+        <li><span class="li-icon">✓</span> Single ledger + multi-user roles</li>
+        <li><span class="li-icon">✓</span> Inventory linked to finance &amp; tax</li>
+        <li><span class="li-icon">✓</span> MIS without Excel gymnastics</li>
+        <li><span class="li-icon">✓</span> Onsite + remote support after go-live</li>
+      </ul>
+      <a routerLink="/products/tally-solutions" class="panel-link">TallyPrime overview →</a>
+    </aside>
+  </section>
+
+  <section class="stats">
+    <div class="stats-inner">
+      @for (item of heroStats; track item.label) {
+        <div class="stat-item">
           <h3>{{ item.value }}</h3>
           <p>{{ item.label }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Why ERP-style setup"
+      title="Clarity for teams. Confidence for owners."
+      description="When data is scattered, decisions slip. One backbone improves speed, control, and compliance together."
+      [center]="true"
+    />
+
+    <div class="grid three-col">
+      @for (item of outcomes; track item.title) {
+        <article class="outcome-card">
+          <span class="oc-icon" aria-hidden="true">{{ item.icon }}</span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
         </article>
       }
     </div>
@@ -24,33 +75,138 @@
 
   <section class="section">
     <app-section-heading
-      eyebrow="Core ERP Modules"
-      title="Everything required to run daily operations at scale"
-      description="Modular architecture so you can start focused and expand as business complexity grows."
+      eyebrow="Core modules"
+      title="Complete coverage for daily operations"
+      description="Activate each module by growth stage — start with finance + billing, then deepen inventory, then payroll &amp; MIS."
       [center]="true"
     />
-    <div class="grid">
-      @for (item of modules; track item.title) {
+
+    <div class="grid three-col">
+      @for (m of modules; track m.title) {
         <app-feature-card
-          [icon]="item.icon"
-          [title]="item.title"
-          [description]="item.description"
-          [compact]="item.compact"
+          [icon]="m.icon"
+          [title]="m.title"
+          [description]="m.description"
+          [linkText]="m.linkText"
+          [link]="m.link"
         />
       }
     </div>
   </section>
 
-  <app-media-highlight
-    imageSrc="images/logo.jpeg"
-    imageAlt="ERP solution sample visual"
-    eyebrow="ERP Campaign"
-    title="Display ERP dashboard screenshot or campaign image here"
-    description="Yaha aap product interface, process map, ya transformation graphic show kar sakte ho."
-    pointOne="Visualize reporting clarity"
-    pointTwo="Show module highlights"
-    pointThree="Add business impact message"
-    ctaText="Request ERP Demo"
-    ctaLink="/contact"
-  />
+  <section class="section split">
+    <div class="split-visual">
+      <div class="visual-frame">
+        <img src="images/Tally-Review.jpg" alt="TallyPrime ERP style reporting and review" />
+      </div>
+      <span class="float-note">Reports that owners actually open every morning</span>
+    </div>
+    <div class="split-copy">
+      <p class="eyebrow">From data to decisions</p>
+      <h2>ERP value shows when reporting stays useful every morning</h2>
+      <p>
+        We do not build MIS only “for accounts” — cash position, receivables ageing,
+        slow-moving stock, and branch comparisons are framed in language owners use daily.
+      </p>
+      <ul class="check-list">
+        <li><span class="check">✓</span> Role-based access — data leak risk kam</li>
+        <li><span class="check">✓</span> Audit trail &amp; backup discipline</li>
+        <li><span class="check">✓</span> GST + e-invoice ready workflows</li>
+      </ul>
+      <a class="btn-primary" routerLink="/contact">Request a demo walkthrough</a>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <app-section-heading
+      eyebrow="Implementation method"
+      title="Transparent 4-phase delivery"
+      description="Predictable go-live — each phase has a written deliverable so you know what is complete and what is pending."
+      [center]="true"
+    />
+
+    <div class="phase-grid">
+      @for (p of phases; track p.step) {
+        <article class="phase-card">
+          <span class="phase-step">{{ p.step }}</span>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.detail }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Industries"
+      title="Sector-wise tailoring"
+      description="Same TallyPrime core — masters, voucher behaviour, and reports tuned to the sector."
+      [center]="true"
+    />
+
+    <div class="industry-row">
+      @for (ind of industries; track ind.label) {
+        <span class="ind-chip">
+          <span class="ind-ico">{{ ind.icon }}</span>
+          {{ ind.label }}
+        </span>
+      }
+    </div>
+  </section>
+
+  <section class="section ecosystem">
+    <app-section-heading
+      eyebrow="Extend the backbone"
+      title="Tally ecosystem &amp; add-ons"
+      description="Server, mobile, and security — ERP data stays accessible while control and compliance hold."
+      [center]="true"
+    />
+
+    <div class="eco-grid">
+      @for (e of ecosystem; track e.title) {
+        <article class="eco-card">
+          <span class="eco-icon">{{ e.icon }}</span>
+          <h3>{{ e.title }}</h3>
+          <p>{{ e.text }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section faq-block">
+    <app-section-heading
+      eyebrow="FAQ"
+      title="Common questions"
+      description="Short answers — detailed discussion happens on the assessment call."
+      [center]="true"
+    />
+
+    <div class="faq-list">
+      @for (f of faqs; track f.q) {
+        <details class="faq-item">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      }
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-content">
+      <p class="eyebrow eyebrow-light">Next step</p>
+      <h2>Ready to unify your operations?</h2>
+      <p>
+        Free ERP-style assessment — current process map, data quality check, and recommended
+        TallyPrime roadmap. Kundli office or remote call — whichever suits you.
+      </p>
+      <div class="cta-actions">
+        <a class="btn-primary btn-on-dark" routerLink="/contact">Schedule consultation</a>
+        <a class="btn-ghost btn-on-dark" routerLink="/products/tally-solutions">Explore TallyPrime</a>
+      </div>
+    </div>
+    <div class="cta-note">
+      <p><strong>softTech</strong> — Tally 5-Star Certified Partner</p>
+      <p>SCO 32, Ground Floor, HSIIDC Commercial Complex, Kundli 131028</p>
+    </div>
+  </section>
 </main>

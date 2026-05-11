@@ -1,8 +1,8 @@
 <header class="navbar">
   <div class="container">
-    <div class="logo">
-      <img src="images/logo.jpeg" alt="logo">
-    </div>
+    <a routerLink="/" class="logo" (click)="closeMobileMenu()" aria-label="softTech home">
+      <img src="images/logo.jpeg" alt="softTech" />
+    </a>
 
     <button class="menu-toggle" type="button" (click)="toggleMobileMenu()" aria-label="Toggle navigation menu">
       <span></span>
@@ -104,7 +104,7 @@
     </nav>
 
     <div class="actions">
-      <button class="quote-btn" type="button" routerLink="/contact" (click)="closeMobileMenu()">
+      <button class="quote-btn" type="button" routerLink="/get-quote" (click)="closeMobileMenu()">
         Get Quote
       </button>
     </div>

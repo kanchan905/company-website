@@ -1,39 +1,149 @@
-<main class="resource-page">
+<main class="blog-page">
   <section class="hero">
-    <p class="eyebrow">Blog</p>
-    <h1>Insights, playbooks, and practical ideas for modern business systems</h1>
-    <p>Read actionable articles around finance, operations, automation, and digital growth.</p>
+    <div class="hero-content">
+      <span class="offer-tag">
+        <span class="dot"></span> Blog &amp; insights
+      </span>
+
+      <h1>
+        Practical ideas for
+        <span class="text-gradient">Tally, GST &amp; business IT</span>
+      </h1>
+
+      <p class="hero-text">
+        Short guides, checklists, and playbooks written for the <strong>Indian SMB context</strong>,
+        so founders, managers, and finance teams can act immediately.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" routerLink="/contact">Suggest a topic</a>
+        <a class="btn-ghost" routerLink="/services/seo-services">
+          <span class="play-icon">▶</span> Content &amp; SEO
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
+      </div>
+    </div>
+
+    <aside class="hero-featured">
+      <p class="hf-tag">{{ featured.tag }}</p>
+      <h2>{{ featured.title }}</h2>
+      <p class="hf-summary">{{ featured.summary }}</p>
+      <div class="hf-meta">
+        <span>{{ featured.date }}</span>
+        <span>{{ featured.readTime }}</span>
+      </div>
+      <a routerLink="/contact" class="hf-link">Discuss this article →</a>
+    </aside>
+  </section>
+
+  <section class="stats">
+    <div class="stats-inner">
+      @for (item of heroStats; track item.label) {
+        <div class="stat-item">
+          <h3>{{ item.value }}</h3>
+          <p>{{ item.label }}</p>
+        </div>
+      }
+    </div>
   </section>
 
   <section class="section">
     <app-section-heading
-      eyebrow="Latest Articles"
-      title="What business teams are reading now"
-      description="Content designed to help founders, managers, and accounts teams take faster decisions."
+      eyebrow="Browse by topic"
+      title="Jump to what matters for your team"
+      description="Use tags as mental filters — every post centres on a practical takeaway."
+      [center]="true"
+    />
+
+    <div class="topic-row">
+      @for (t of topics; track t) {
+        <span class="topic-chip">{{ t }}</span>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Latest articles"
+      title="What teams are reading now"
+      description="Summaries live here; request a call or visit walkthrough for the deep dive."
+      [center]="true"
     />
 
     <div class="post-grid">
       @for (post of posts; track post.title) {
         <article class="post-card">
-          <span>{{ post.category }}</span>
+          <div class="pc-top">
+            <span class="pc-cat">{{ post.category }}</span>
+            <span class="pc-date">{{ post.date }}</span>
+          </div>
           <h3>{{ post.title }}</h3>
           <p>{{ post.summary }}</p>
-          <a routerLink="/contact">{{ post.readTime }} →</a>
+          <div class="pc-foot">
+            <span class="pc-read">{{ post.readTime }}</span>
+            <a routerLink="/contact" class="pc-link">Discuss →</a>
+          </div>
         </article>
       }
     </div>
   </section>
 
-  <app-media-highlight
-    imageSrc="images/logo.jpeg"
-    imageAlt="Blog campaign sample visual"
-    eyebrow="Featured Story"
-    title="Add blog cover image, thought leadership banner, or campaign poster here"
-    description="Content pages me visual storytelling add karne ke liye yeh block perfect hai."
-    pointOne="Increase time on page"
-    pointTwo="Stronger content branding"
-    pointThree="Better conversion intent"
-    ctaText="Read More Insights"
-    ctaLink="/contact"
-  />
+  <section class="section section-soft">
+    <app-section-heading
+      eyebrow="Stay in the loop"
+      title="Want a monthly digest?"
+      description="Email us for now — when the formal newsletter launches, you can join the first cohort."
+      [center]="true"
+    />
+
+    <div class="newsletter-card">
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:tyagi.sts%40gmail.com?subject=Blog%20digest%20signup">tyagi.sts&#64;gmail.com</a>
+      </p>
+      <p class="news-note">Use subject line: <em>Blog digest</em> — our team will add you manually.</p>
+    </div>
+  </section>
+
+  <section class="section faq-block">
+    <app-section-heading
+      eyebrow="FAQ"
+      title="About this blog"
+      description="Transparency matters — these notes keep expectations aligned."
+      [center]="true"
+    />
+
+    <div class="faq-list">
+      @for (f of faqs; track f.q) {
+        <details class="faq-item">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      }
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-content">
+      <p class="eyebrow eyebrow-light">Write to us</p>
+      <h2>Topic idea or problem statement? We can cover it.</h2>
+      <p>
+        Share 2–3 lines about your situation — we respond with an outline from relevant experience,
+        and if there is a fit we plan a future article or workshop.
+      </p>
+      <div class="cta-actions">
+        <a class="btn-primary btn-on-dark" routerLink="/contact">Contact softTech</a>
+        <a class="btn-ghost btn-on-dark" href="mailto:tyagi.sts%40gmail.com?subject=Blog%20topic%20idea">✉️ Email topic</a>
+      </div>
+    </div>
+    <div class="cta-note">
+      <p><strong>softTech</strong> — Tally partner + IT + content</p>
+      <p>SCO 32, Ground Floor, HSIIDC Commercial Complex, Kundli 131028</p>
+    </div>
+  </section>
 </main>

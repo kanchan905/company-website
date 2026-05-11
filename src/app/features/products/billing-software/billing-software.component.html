@@ -1,38 +1,216 @@
-<main class="product-page">
+<main class="billing-page">
   <section class="hero">
-    <p class="eyebrow">Billing Software</p>
-    <h1>Speed up billing operations while keeping accuracy and control intact</h1>
-    <p>
-      Billing software built for modern businesses that need faster counters, cleaner records,
-      and stronger payment tracking.
-    </p>
-    <a routerLink="/contact" class="btn-primary">Request Billing Demo</a>
+    <div class="hero-content">
+      <span class="offer-tag">
+        <span class="dot"></span> Billing Software
+      </span>
+
+      <h1>
+        <span class="text-gradient">Fast, GST-ready billing</span> for counters &amp; offices
+      </h1>
+
+      <p class="hero-text">
+        Bills in seconds at the counter, <strong>automatic stock updates</strong>, GST + e-invoice compliant,
+        thermal &amp; A4 printing, plus <strong>Tally sync</strong> — setup, training, and ongoing support from softTech.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" routerLink="/contact">Book billing demo</a>
+        <a class="btn-ghost" routerLink="/products/tally-solutions">
+          <span class="play-icon">▶</span> Tally Solutions
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
+      </div>
+    </div>
+
+    <aside class="bill-mock">
+      <div class="bill-paper">
+        <div class="bp-head">
+          <strong>softTech</strong>
+          <small>GSTIN: 06ABCDE1234F1Z5</small>
+          <small>SCO 32, HSIIDC, Kundli 131028</small>
+        </div>
+
+        <div class="bp-meta">
+          <span>Bill #1042</span>
+          <span class="bp-date">11 May 2026 · 12:38</span>
+        </div>
+
+        <table class="bp-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Rate</th>
+              <th>Amt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TallyPrime Silver</td>
+              <td>1</td>
+              <td>22,500</td>
+              <td>22,500</td>
+            </tr>
+            <tr>
+              <td>AMC – Annual</td>
+              <td>1</td>
+              <td>6,000</td>
+              <td>6,000</td>
+            </tr>
+            <tr>
+              <td>Training (2 hr)</td>
+              <td>2</td>
+              <td>800</td>
+              <td>1,600</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="bp-totals">
+          <span>Sub-total</span><span>30,100</span>
+          <span>GST &#64; 18%</span><span>5,418</span>
+          <span class="grand">Total</span><span class="grand">₹ 35,518</span>
+        </div>
+
+        <div class="bp-foot">
+          <span class="bp-tag">Paid via UPI ✓</span>
+          <span class="bp-share">📲 Share on WhatsApp</span>
+        </div>
+      </div>
+    </aside>
   </section>
 
-  <section class="section">
-    <app-section-heading
-      eyebrow="Billing Capabilities"
-      title="Everything needed for smooth invoicing and collections"
-      description="Designed for retail, distribution, and service businesses."
-      [center]="true"
-    />
-    <div class="grid">
-      @for (item of billingFeatures; track item.title) {
-        <app-feature-card [icon]="item.icon" [title]="item.title" [description]="item.description" />
+  <section class="stats">
+    <div class="stats-inner">
+      @for (item of heroStats; track item.label) {
+        <div class="stat-item">
+          <h3>{{ item.value }}</h3>
+          <p>{{ item.label }}</p>
+        </div>
       }
     </div>
   </section>
 
-  <app-media-highlight
-    imageSrc="images/logo.jpeg"
-    imageAlt="Billing software sample visual"
-    eyebrow="Billing Visual"
-    title="Use invoice screen or billing dashboard screenshot in this card"
-    description="Ek strong visual billing speed aur reporting clarity ko instantly communicate karta hai."
-    pointOne="Invoice generation preview"
-    pointTwo="Payment tracking visual"
-    pointThree="Stock sync showcase"
-    ctaText="Get Billing Setup"
-    ctaLink="/contact"
-  />
+  <section class="section">
+    <app-section-heading
+      eyebrow="Why this billing"
+      title="Counter speed + accounting accuracy"
+      description="Keep the front desk fast while back-office data stays accurate — that balance guides our design."
+      [center]="true"
+    />
+
+    <div class="grid four-col">
+      @for (w of whyBilling; track w.title) {
+        <article class="why-card">
+          <span class="wc-icon" aria-hidden="true">{{ w.icon }}</span>
+          <h3>{{ w.title }}</h3>
+          <p>{{ w.description }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Features"
+      title="Everything you need at the counter"
+      description="Invoice, inventory, payments, print, schemes, and reports — one system with a consistent UI."
+      [center]="true"
+    />
+
+    <div class="grid three-col">
+      @for (f of features; track f.title) {
+        <app-feature-card
+          [icon]="f.icon"
+          [title]="f.title"
+          [description]="f.description"
+          [linkText]="f.linkText"
+          [link]="f.link"
+        />
+      }
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <app-section-heading
+      eyebrow="Integrations &amp; hardware"
+      title="Plays well with your shop / office"
+      description="Tally, printers, scanners, UPI — duplicate entry kam, customer experience fast."
+      [center]="true"
+    />
+
+    <div class="stack-grid">
+      @for (i of integrations; track i.name) {
+        <article class="stack-card">
+          <span class="stack-icon" aria-hidden="true">{{ i.icon }}</span>
+          <div>
+            <h3>{{ i.name }}</h3>
+            <p>{{ i.detail }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Process"
+      title="From manual register to digital billing"
+      description="Typical SMB go-live in 3–7 days — training included."
+      [center]="true"
+    />
+
+    <div class="steps-row">
+      @for (p of process; track p.step) {
+        <article class="step-chip">
+          <span class="step-num">{{ p.step }}</span>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.detail }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section faq-block">
+    <app-section-heading
+      eyebrow="FAQ"
+      title="Common billing questions"
+      description="Start here before booking a detailed demo."
+      [center]="true"
+    />
+
+    <div class="faq-list">
+      @for (f of faqs; track f.q) {
+        <details class="faq-item">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      }
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-content">
+      <p class="eyebrow eyebrow-light">Next step</p>
+      <h2>See a live billing demo on real items</h2>
+      <p>
+        Share 5–10 fast-moving items plus GST rates — we demonstrate live billing,
+        stock impact, and Tally sync on those SKUs. Thirty minutes to clarity.
+      </p>
+      <div class="cta-actions">
+        <a class="btn-primary btn-on-dark" routerLink="/contact">Book billing demo</a>
+        <a class="btn-ghost btn-on-dark" href="tel:+918222845550">📞 +91 82228 45550</a>
+      </div>
+    </div>
+    <div class="cta-note">
+      <p><strong>softTech</strong> — Billing + Tally + hardware support</p>
+      <p>SCO 32, Ground Floor, HSIIDC Commercial Complex, Kundli 131028</p>
+    </div>
+  </section>
 </main>

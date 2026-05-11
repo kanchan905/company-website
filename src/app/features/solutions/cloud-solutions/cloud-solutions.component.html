@@ -1,43 +1,202 @@
-<main class="solution-page">
+<main class="cloud-page">
   <section class="hero">
-    <p class="eyebrow">Cloud Solutions</p>
-    <h1>Secure, scalable, and cost-optimized cloud architecture for modern businesses</h1>
-    <p>
-      We help you migrate, modernize, and run your systems on cloud with strong governance,
-      uptime reliability, and predictable cost control.
-    </p>
-    <a routerLink="/contact" class="btn-primary">Plan Cloud Roadmap</a>
+    <div class="hero-content">
+      <span class="offer-tag">
+        <span class="dot"></span> Cloud Solutions
+      </span>
+
+      <h1>
+        Tally and business apps —
+        <span class="text-gradient">anywhere, anytime, securely</span>
+      </h1>
+
+      <p class="hero-text">
+        We bring your <strong>TallyPrime</strong> and business workflows into a modern,
+        secure stack with official cloud, <strong>TSplus remote</strong>, and managed backups —
+        without hiring a full IT team.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" routerLink="/contact">Start Cloud Assessment</a>
+        <a class="btn-ghost" routerLink="/products/tally-solutions">
+          <span class="play-icon">▶</span> TallyPrime overview
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
+      </div>
+    </div>
+
+    <aside class="hero-panel">
+      <p class="panel-tag">Cloud at a glance</p>
+      <h2>Stop worrying about local data alone. Access, backup &amp; security — managed.</h2>
+      <ul class="panel-list">
+        <li><span class="li-icon">✓</span> Official TallyPrime Cloud Access</li>
+        <li><span class="li-icon">✓</span> TSplus remote desktop &mdash; affordable</li>
+        <li><span class="li-icon">✓</span> Daily encrypted backups</li>
+        <li><span class="li-icon">✓</span> Onsite + remote support from Kundli</li>
+      </ul>
+      <a routerLink="/contact" class="panel-link">Talk to cloud expert →</a>
+    </aside>
+  </section>
+
+  <section class="stats">
+    <div class="stats-inner">
+      @for (item of heroStats; track item.label) {
+        <div class="stat-item">
+          <h3>{{ item.value }}</h3>
+          <p>{{ item.label }}</p>
+        </div>
+      }
+    </div>
   </section>
 
   <section class="section">
     <app-section-heading
-      eyebrow="What We Deliver"
-      title="Cloud that supports business continuity and growth"
-      description="From migration to optimization, each step is designed for performance, safety, and control."
+      eyebrow="Pillars"
+      title="Cloud setup that actually fits a growing SMB"
+      description="Not a heavy enterprise stack — practical, affordable cloud workflows that keep daily operations fast and safe."
       [center]="true"
     />
-    <div class="grid">
-      @for (item of pillars; track item.title) {
+
+    <div class="grid four-col">
+      @for (p of pillars; track p.title) {
+        <article class="pillar-card">
+          <span class="pc-icon" aria-hidden="true">{{ p.icon }}</span>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.description }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Services"
+      title="Complete cloud + remote access stack"
+      description="Tally Cloud, TSplus, backup utilities, and endpoint security — all from one authorised partner."
+      [center]="true"
+    />
+
+    <div class="grid three-col">
+      @for (s of services; track s.title) {
         <app-feature-card
-          [icon]="item.icon"
-          [title]="item.title"
-          [description]="item.description"
+          [icon]="s.icon"
+          [title]="s.title"
+          [description]="s.description"
+          [linkText]="s.linkText"
+          [link]="s.link"
         />
       }
     </div>
   </section>
 
-  <app-media-highlight
-    imageSrc="images/logo.jpeg"
-    imageAlt="Cloud solution sample visual"
-    eyebrow="Cloud Infrastructure"
-    title="Place cloud architecture visual or migration campaign image"
-    description="Is section me cloud migration, uptime, backup ya security posture ka visual add karna best rahega."
-    pointOne="Explain migration journey visually"
-    pointTwo="Show security readiness"
-    pointThree="Highlight uptime commitment"
-    ctaText="Plan Cloud Shift"
-    ctaLink="/contact"
-    [reverse]="true"
-  />
+  <section class="section compare-section">
+    <app-section-heading
+      eyebrow="Local vs Cloud"
+      title="Why move to cloud?"
+      description="Quick comparison — so decisions rest on facts as well as trust."
+      [center]="true"
+    />
+
+    <div class="compare-card">
+      <div class="compare-head">
+        <span>What changes</span>
+        <span class="ch-local">Local server</span>
+        <span class="ch-cloud">Cloud / Remote</span>
+      </div>
+
+      @for (row of compareRows; track row.label) {
+        <div class="compare-row">
+          <span class="cr-label">{{ row.label }}</span>
+          <span class="cr-local">
+            <span class="cross" aria-hidden="true">×</span> {{ row.local }}
+          </span>
+          <span class="cr-cloud" [class.good]="row.cloudGood">
+            <span class="tick" aria-hidden="true">✓</span> {{ row.cloud }}
+          </span>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <app-section-heading
+      eyebrow="Implementation"
+      title="4-phase cloud rollout"
+      description="From audit through monitoring — each step has a clear deliverable; fewer surprises."
+      [center]="true"
+    />
+
+    <div class="phase-grid">
+      @for (p of phases; track p.step) {
+        <article class="phase-card">
+          <span class="phase-step">{{ p.step }}</span>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.detail }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="Who it's for"
+      title="Real use cases we deploy"
+      description="Cloud is more than a buzzword — it solves concrete scenarios for your business."
+      [center]="true"
+    />
+
+    <div class="usecase-grid">
+      @for (u of useCases; track u.title) {
+        <article class="usecase-card">
+          <span class="uc-icon">{{ u.icon }}</span>
+          <div>
+            <h3>{{ u.title }}</h3>
+            <p>{{ u.detail }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section faq-block">
+    <app-section-heading
+      eyebrow="FAQ"
+      title="Common cloud questions"
+      description="Short answers — detailed walkthrough on a free consultation call."
+      [center]="true"
+    />
+
+    <div class="faq-list">
+      @for (f of faqs; track f.q) {
+        <details class="faq-item">
+          <summary>{{ f.q }}</summary>
+          <p>{{ f.a }}</p>
+        </details>
+      }
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-content">
+      <p class="eyebrow eyebrow-light">Next step</p>
+      <h2>Free consultation for your cloud roadmap</h2>
+      <p>
+        Current setup audit, recommended cloud plan, and pricing — no commitment required.
+        softTech is a Tally 5-Star Certified Partner and TSplus authorised reseller — all licenses are genuine.
+      </p>
+      <div class="cta-actions">
+        <a class="btn-primary btn-on-dark" routerLink="/contact">Book cloud consultation</a>
+        <a class="btn-ghost btn-on-dark" href="tel:+918222845550">📞 +91 82228 45550</a>
+      </div>
+    </div>
+    <div class="cta-note">
+      <p><strong>softTech</strong> — Tally 5-Star Certified Partner</p>
+      <p>SCO 32, Ground Floor, HSIIDC Commercial Complex, Kundli 131028</p>
+    </div>
+  </section>
 </main>

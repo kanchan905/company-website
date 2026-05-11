@@ -1,63 +1,338 @@
-<main class="company-page">
+<main class="clients-page">
+  <!-- =============================================
+       HERO
+  ============================================== -->
   <section class="hero">
+    <div class="hero-content">
+      <span class="offer-tag">
+        <span class="dot"></span> Our Clients • Trusted Since 2014
+      </span>
+
+      <h1>
+        Trusted by
+        <span class="text-gradient">250+ growing businesses</span>
+        across Haryana
+      </h1>
+
+      <p class="hero-text">
+        Retailers, manufacturers, distributors, pharmacies, and educational institutes —
+        all run smoother accounting, compliance, and operations with softTech.
+        <strong>4.9 / 5 rating</strong> and a <strong>98% renewal rate</strong> define our reputation.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" routerLink="/contact">Become a Client</a>
+        <a class="btn-ghost" href="#stories">
+          <span class="play-icon">▶</span> See Success Stories
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
+      </div>
+    </div>
+
+    <!-- Right side: Trust snapshot card -->
+    <aside class="trust-card">
+      <div class="trust-ribbon">
+        <span>⭐</span>
+        <span>Rated 4.9 / 5 by Clients</span>
+      </div>
+
+      <div class="trust-body">
+        <div class="rating-display">
+          <div class="rating-big">
+            <strong>4.9</strong>
+            <span class="rating-stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </span>
+            <small>out of 5</small>
+          </div>
+
+          <div class="rating-bars">
+            <div class="bar-row">
+              <span>5★</span>
+              <span class="bar"><span class="fill" style="width: 92%"></span></span>
+              <small>92%</small>
+            </div>
+            <div class="bar-row">
+              <span>4★</span>
+              <span class="bar"><span class="fill" style="width: 6%"></span></span>
+              <small>6%</small>
+            </div>
+            <div class="bar-row">
+              <span>3★</span>
+              <span class="bar"><span class="fill" style="width: 2%"></span></span>
+              <small>2%</small>
+            </div>
+          </div>
+        </div>
+
+        <p class="trust-quote">
+          <span class="q-icon" aria-hidden="true">"</span>
+          During GST filing season softTech stays available late into the night.
+          They have been our partner for four years.
+        </p>
+
+        <div class="trust-author">
+          <span class="ta-avatar">S</span>
+          <div class="ta-meta">
+            <strong>Sunil Kumar</strong>
+            <small>Kumar Pharmacy • Sonipat</small>
+          </div>
+        </div>
+
+        <div class="trust-stats">
+          <div>
+            <strong>250+</strong>
+            <small>Clients</small>
+          </div>
+          <div>
+            <strong>98%</strong>
+            <small>Renewals</small>
+          </div>
+          <div>
+            <strong>10+</strong>
+            <small>Years</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- =============================================
+       STATS COUNTER
+  ============================================== -->
+  <section class="stats">
+    <div class="stats-inner">
+      @for (stat of heroStats; track stat.label) {
+        <div class="stat-item">
+          <h3>{{ stat.value }}</h3>
+          <p>{{ stat.label }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- =============================================
+       CLIENT LOGOS MARQUEE
+  ============================================== -->
+  <section class="logos-section">
+    <p class="logos-eyebrow">A few names we proudly serve</p>
+
+    <div class="logos-marquee">
+      <div class="logos-track">
+        @for (name of clientLogos; track name) {
+          <span class="logo-chip">
+            <span class="lc-mark">{{ name.charAt(0) }}</span>
+            <span class="lc-name">{{ name }}</span>
+          </span>
+        }
+        <!-- Duplicate set for seamless loop -->
+        @for (name of clientLogos; track name) {
+          <span class="logo-chip" aria-hidden="true">
+            <span class="lc-mark">{{ name.charAt(0) }}</span>
+            <span class="lc-name">{{ name }}</span>
+          </span>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       INDUSTRIES WE SERVE
+  ============================================== -->
+  <section class="section">
     <app-section-heading
-      eyebrow="Our Clients"
-      title="Trusted by ambitious businesses across industries"
-      description="We partner with teams that value clarity, execution speed, and scalable systems."
+      eyebrow="Industries We Serve"
+      title="Real expertise across 6 sectors"
+      description="Accounting and compliance needs vary — we tailor setups industry by industry."
+      [center]="true"
     />
-    <div class="hero-metrics">
-      @for (item of metrics; track item.label) {
-        <article>
-          <h3>{{ item.value }}</h3>
-          <p>{{ item.label }}</p>
+
+    <div class="sectors-grid">
+      @for (sector of sectors; track sector.title) {
+        <article class="sector-card">
+          @if (sector.tag) {
+            <span class="sector-tag">{{ sector.tag }}</span>
+          }
+
+          <div class="sector-head">
+            <span class="sector-icon">{{ sector.icon }}</span>
+            <span class="sector-count">{{ sector.clientCount }}</span>
+          </div>
+
+          <h3>{{ sector.title }}</h3>
+
+          <div class="sector-points">
+            <div class="point challenge-point">
+              <span class="point-tag">CHALLENGE</span>
+              <p>{{ sector.challenge }}</p>
+            </div>
+            <div class="point outcome-point">
+              <span class="point-tag">OUTCOME</span>
+              <p>{{ sector.outcome }}</p>
+            </div>
+          </div>
         </article>
       }
     </div>
   </section>
 
-  <section class="sector-grid">
-    @for (sector of sectors; track sector) {
-      <article class="sector-card">
-        <h3>{{ sector.title }}</h3>
-        <p class="challenge"><strong>Challenge:</strong> {{ sector.challenge }}</p>
-        <p class="outcome"><strong>Outcome:</strong> {{ sector.outcome }}</p>
-      </article>
-    }
+  <!-- =============================================
+       FEATURED SUCCESS STORIES
+  ============================================== -->
+  <section class="section" id="stories">
+    <app-section-heading
+      eyebrow="Success Stories"
+      title="Real results from real businesses"
+      description="3 detailed case studies — different industries, similar approach: practical, measurable, sustainable."
+      [center]="true"
+    />
+
+    <div class="stories-grid">
+      @for (story of featuredStories; track story.company) {
+        <article class="story-card">
+          <div class="story-top" [class]="story.colorClass">
+            <span class="story-industry">{{ story.industry }}</span>
+            <span class="story-avatar">{{ story.avatar }}</span>
+          </div>
+
+          <div class="story-body">
+            <h3>{{ story.company }}</h3>
+            <p class="story-location">📍 {{ story.location }}</p>
+
+            <p class="story-summary">{{ story.summary }}</p>
+
+            <div class="story-metrics">
+              @for (metric of story.metrics; track metric.label) {
+                <div class="metric">
+                  <strong>{{ metric.value }}</strong>
+                  <small>{{ metric.label }}</small>
+                </div>
+              }
+            </div>
+
+            <blockquote class="story-quote">
+              <span class="q-mark" aria-hidden="true">"</span>
+              {{ story.quote }}
+            </blockquote>
+
+            <div class="story-author">
+              <strong>— {{ story.person }}</strong>
+              <small>{{ story.role }}</small>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
   </section>
 
-  <section class="testimonial-grid">
-    @for (item of testimonials; track item.name) {
-      <article class="testimonial-card">
-        <p>"{{ item.quote }}"</p>
-        <h4>{{ item.name }}</h4>
-      </article>
-    }
+  <!-- =============================================
+       TESTIMONIALS WALL
+  ============================================== -->
+  <section class="section section-soft">
+    <app-section-heading
+      eyebrow="What Clients Say"
+      title="In their own words"
+      description="No filters — direct feedback from business owners who run their daily operations on softTech's stack."
+      [center]="true"
+    />
+
+    <div class="testimonials-grid">
+      @for (review of testimonials; track review.name) {
+        <article class="review-card">
+          <div class="review-stars">
+            @for (s of [].constructor(review.rating); track $index) {
+              <span aria-hidden="true">★</span>
+            }
+          </div>
+
+          <p class="review-quote">"{{ review.quote }}"</p>
+
+          <div class="review-author">
+            <span class="r-avatar" [class]="review.colorClass">{{ review.avatar }}</span>
+            <div class="r-meta">
+              <strong>{{ review.name }}</strong>
+              <span>{{ review.role }}</span>
+              <small>{{ review.company }} • {{ review.location }}</small>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
   </section>
 
-  <app-media-highlight
-    imageSrc="images/logo.jpeg"
-    imageAlt="Client success sample banner"
-    eyebrow="Client Campaign"
-    title="Show your client success poster or case highlight visual here"
-    description="Client trust build karne ke liye proof-based visual sections bahut effective hote hain."
-    pointOne="Use before/after style graphic"
-    pointTwo="Add sector-specific result poster"
-    pointThree="Place QR/contact CTA on image"
-    ctaText="Share Your Requirement"
-    ctaLink="/contact"
-    [reverse]="true"
-  />
+  <!-- =============================================
+       CERTIFICATIONS / PARTNERSHIPS
+  ============================================== -->
+  <section class="section">
+    <app-section-heading
+      eyebrow="Recognised Partner"
+      title="Authorized by trusted brands"
+      description="Every product is genuine — direct OEM authorisations. You receive authentic licenses only."
+      [center]="true"
+    />
 
+    <div class="cert-grid">
+      @for (cert of certifications; track cert.title) {
+        <article class="cert-card">
+          <span class="cert-icon">{{ cert.icon }}</span>
+          <div class="cert-meta">
+            <strong>{{ cert.title }}</strong>
+            <small>{{ cert.subtitle }}</small>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- =============================================
+       FINAL CTA
+  ============================================== -->
   <section class="cta">
-    <h2>Want a tailored roadmap for your industry?</h2>
-    <p>Book a discussion and we will share the right implementation model for your business stage.</p>
-    <a routerLink="/contact">Schedule a Consultation</a>
-  </section>
+    <div class="cta-content">
+      <p class="eyebrow eyebrow-light">Become Our Next Success Story</p>
+      <h2>Want a tailored roadmap for your industry?</h2>
+      <p>
+        Free consultation — we recommend the right TallyPrime edition, add-ons, and process design for your stage and sector.
+        No commitment, no obligation.
+      </p>
 
-  <section class="brand-strip">
-    <span>Fast Onboarding</span>
-    <span>Industry-Specific Workflows</span>
-    <span>Dedicated Support</span>
-    <span>Transparent Reporting</span>
+      <div class="cta-actions">
+        <a class="btn-primary btn-on-dark" routerLink="/contact">
+          Schedule a Consultation
+        </a>
+        <a class="btn-ghost btn-on-dark" [href]="contactInfo.phoneHref">
+          📞 {{ contactInfo.phone }}
+        </a>
+      </div>
+    </div>
+
+    <div class="cta-info">
+      <a class="info-row" [href]="contactInfo.phoneHref">
+        <span class="info-icon">📞</span>
+        <div>
+          <small>Call</small>
+          <strong>{{ contactInfo.phone }}</strong>
+        </div>
+      </a>
+      <a class="info-row" [href]="contactInfo.emailHref">
+        <span class="info-icon">✉️</span>
+        <div>
+          <small>Email</small>
+          <strong>{{ contactInfo.email }}</strong>
+        </div>
+      </a>
+      <div class="info-row">
+        <span class="info-icon">📍</span>
+        <div>
+          <small>Visit</small>
+          <strong>SCO 32, HSIIDC Commercial Complex, Kundli 131028</strong>
+        </div>
+      </div>
+    </div>
   </section>
 </main>

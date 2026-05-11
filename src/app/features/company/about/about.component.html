@@ -1,85 +1,284 @@
-<main class="company-page">
+<main class="about-page">
   <section class="hero">
-    <div class="hero-copy">
-      <p class="eyebrow">About Company</p>
-      <h1>We help businesses move from confusion to control with modern systems</h1>
-      <p>
-        From Tally implementation to automation consulting, we design workflows that are easy for teams,
-        transparent for owners, and scalable for growth.
+    <div class="hero-content">
+      <span class="offer-tag">
+        <span class="dot"></span> About softTech
+      </span>
+
+      <h1>
+        Powering businesses with
+        <span class="text-gradient">TallyPrime</span>
+        for over a decade
+      </h1>
+
+      <p class="hero-text">
+        We are a <strong>Tally 5-Star Certified Partner</strong> based in Kundli, Sonipat —
+        powering 250+ growing businesses with TallyPrime, mobile reporting, automation, and reliable
+        onsite support across Haryana &amp; Delhi NCR.
       </p>
+
       <div class="hero-actions">
         <a class="btn-primary" routerLink="/contact">Book Strategy Call</a>
-        <a class="btn-secondary" routerLink="/company/clients">View Client Success</a>
+        <a class="btn-ghost" routerLink="/company/clients">
+          <span class="play-icon">▶</span> See Client Stories
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        @for (badge of heroBadges; track badge) {
+          <span class="badge">{{ badge }}</span>
+        }
       </div>
     </div>
 
-    <div class="hero-stats">
-      @for (item of stats; track item.label) {
-        <article>
-          <h3>{{ item.value }}</h3>
-          <p>{{ item.label }}</p>
+    <!-- Right side identity card -->
+    <aside class="identity-card">
+      <div class="id-ribbon">
+        <span>🏅</span>
+        <span>Tally 5-Star Certified Partner</span>
+      </div>
+
+      <div class="id-body">
+        <div class="id-logo">M</div>
+        <h2>softTech</h2>
+        <p class="id-tagline">Your Trusted Tally Partner Since 2014</p>
+
+        <div class="id-meta">
+          <div class="id-row">
+            <span class="id-icon">📍</span>
+            <div>
+              <small>Location</small>
+              <strong>Kundli, Sonipat, Haryana</strong>
+            </div>
+          </div>
+          <div class="id-row">
+            <span class="id-icon">📅</span>
+            <div>
+              <small>Established</small>
+              <strong>2014 • 10+ Years</strong>
+            </div>
+          </div>
+          <div class="id-row">
+            <span class="id-icon">🛟</span>
+            <div>
+              <small>Support</small>
+              <strong>Onsite + Remote, 6 Days</strong>
+            </div>
+          </div>
+        </div>
+
+        <a class="id-cta" href="tel:+918222845550">
+          📞 Call +91 82228 45550
+        </a>
+      </div>
+    </aside>
+  </section>
+
+  <section class="stats">
+    <div class="stats-inner">
+      @for (stat of heroStats; track stat.label) {
+        <div class="stat-item">
+          <h3>{{ stat.value }}</h3>
+          <p>{{ stat.label }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+
+  <section class="section">
+    <app-section-heading
+      eyebrow="What Drives Us"
+      title="Mission, Vision & Promise"
+      description="Behind every implementation and support call are three things — clarity, partnership, and outcomes."
+      [center]="true"
+    />
+
+    <div class="grid three-col">
+      @for (item of pillars; track item.title) {
+        <article class="pillar-card">
+          <span class="pillar-icon" aria-hidden="true">{{ item.icon }}</span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
         </article>
       }
     </div>
   </section>
 
-  <section class="pillars">
-    @for (item of pillars; track item.title) {
-      <article>
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.description }}</p>
-      </article>
-    }
-  </section>
+  <section class="section story-section">
+    <div class="story-visual">
+      <div class="visual-frame">
+        <div class="visual-overlay">
+          <span class="overlay-tag">Est. 2014</span>
+          <h3>10+ Years of Trust</h3>
+          <p>Kundli • Sonipat • Panipat • Delhi NCR</p>
+        </div>
+        <img src="images/Tally-Review.jpg" alt="softTech journey" />
+      </div>
+      <div class="visual-stat">
+        <span class="vs-num">250+</span>
+        <span class="vs-label">Active Business Clients</span>
+      </div>
+    </div>
 
-  <app-media-highlight
-    imageSrc="images/logo.jpeg"
-    imageAlt="About company campaign sample"
-    eyebrow="Visual Story"
-    title="Replace this with your actual brand campaign visual"
-    description="Aap `public/images` folder me image add karke yaha filename update kar sakte ho."
-    pointOne="Brand trust improve hota hai"
-    pointTwo="Page less text-heavy lagta hai"
-    pointThree="Visual recall better hota hai"
-    ctaText="Add Your Image"
-    ctaLink="/contact"
-  />
+    <div class="story-content">
+      <p class="eyebrow">{{ story.eyebrow }}</p>
+      <h2>{{ story.title }}</h2>
+
+      @for (para of story.paragraphs; track $index) {
+        <p class="story-para">{{ para }}</p>
+      }
+
+      <div class="story-stats">
+        <div>
+          <strong>500+</strong>
+          <small>Students trained</small>
+        </div>
+        <div>
+          <strong>6</strong>
+          <small>Industries served</small>
+        </div>
+        <div>
+          <strong>2014</strong>
+          <small>Founded in Kundli</small>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="section">
     <app-section-heading
-      eyebrow="Who We Are"
-      title="Built to simplify finance, compliance, and operations"
-      description="Hamari team deployment ke baad bhi saath rehti hai, taaki systems sirf live na ho, real value bhi deliver kare."
+      eyebrow="Our Journey"
+      title="How we have evolved over the years"
+      description="A practical journey from a small Tally support desk to a 5-Star Certified Partner."
       [center]="true"
     />
 
-    <div class="grid">
-      @for (item of values; track item.title) {
+    <ol class="timeline">
+      @for (step of milestones; track step.year; let i = $index) {
+        <li class="timeline-item" [class.right]="i % 2 !== 0">
+          <div class="timeline-marker">
+            <span>{{ step.year }}</span>
+          </div>
+          <article class="timeline-card">
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.description }}</p>
+          </article>
+        </li>
+      }
+    </ol>
+  </section>
+
+  <section class="founder">
+    <div class="founder-inner">
+      <span class="big-quote" aria-hidden="true">"</span>
+      <p class="founder-message">{{ founderQuote.message }}</p>
+
+      <div class="founder-author">
+        <div class="f-avatar">{{ founderQuote.avatar }}</div>
+        <div class="f-meta">
+          <strong>{{ founderQuote.name }}</strong>
+          <span>{{ founderQuote.role }}</span>
+          <small>{{ founderQuote.since }}</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section section-soft">
+    <app-section-heading
+      eyebrow="Our Values"
+      title="What makes us a reliable partner"
+      description="More than a team that installs software and leaves — every engagement reflects a clear philosophy."
+      [center]="true"
+    />
+
+    <div class="grid four-col">
+      @for (value of values; track value.title) {
         <app-feature-card
-          [icon]="item.icon"
-          [title]="item.title"
-          [description]="item.description"
+          [icon]="value.icon"
+          [title]="value.title"
+          [description]="value.description"
           [compact]="true"
         />
       }
     </div>
   </section>
 
-  <section class="section timeline">
+  <section class="section">
     <app-section-heading
-      eyebrow="Journey"
-      title="How we have evolved over the years"
-      description="Ek practical journey: software setup se business transformation partner banne tak."
+      eyebrow="Industries We Serve"
+      title="Real expertise across sectors"
+      description="Accounting and compliance needs vary by industry — we tailor setup accordingly."
       [center]="true"
     />
 
-    <div class="timeline-grid">
-      @for (step of milestones; track step.year) {
-        <article class="timeline-card">
-          <span>{{ step.year }}</span>
-          <h3>{{ step.title }}</h3>
-          <p>{{ step.description }}</p>
+    <div class="industries-grid">
+      @for (industry of industries; track industry.name) {
+        <article class="industry-card">
+          <span class="ic-icon">{{ industry.icon }}</span>
+          <span class="ic-name">{{ industry.name }}</span>
         </article>
+      }
+    </div>
+  </section>
+
+  <section class="section certifications-section">
+    <app-section-heading
+      eyebrow="Certifications & Partnerships"
+      title="Authorized partners of trusted brands"
+      description="Every product is genuine — backed by direct OEM authorisations."
+      [center]="true"
+    />
+
+    <div class="cert-grid">
+      @for (cert of certifications; track cert.title) {
+        <article class="cert-card">
+          <span class="cert-icon">{{ cert.icon }}</span>
+          <div class="cert-meta">
+            <strong>{{ cert.title }}</strong>
+            <small>{{ cert.subtitle }}</small>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-content">
+      <p class="eyebrow eyebrow-light">Visit Our Office</p>
+      <h2>The right Tally setup for your business — let’s plan it together.</h2>
+      <p>
+        Book a free consultation, demo, or pricing discussion — one call or visit away. We are located in
+        Kundli HSIIDC Commercial Complex and cover onsite visits across Sonipat–Panipat–Delhi NCR.
+      </p>
+
+      <div class="cta-actions">
+        <a class="btn-primary btn-on-dark" routerLink="/contact">Book Free Consultation</a>
+        <a class="btn-ghost btn-on-dark" href="tel:+918222845550">📞 +91 82228 45550</a>
+      </div>
+    </div>
+
+    <div class="cta-info">
+      @for (info of contactBlock; track info.label) {
+        @if (info.href) {
+          <a class="info-row" [href]="info.href">
+            <span class="info-icon">{{ info.icon }}</span>
+            <div>
+              <small>{{ info.label }}</small>
+              <strong>{{ info.value }}</strong>
+            </div>
+          </a>
+        } @else {
+          <div class="info-row">
+            <span class="info-icon">{{ info.icon }}</span>
+            <div>
+              <small>{{ info.label }}</small>
+              <strong>{{ info.value }}</strong>
+            </div>
+          </div>
+        }
       }
     </div>
   </section>
